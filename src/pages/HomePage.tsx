@@ -9,6 +9,7 @@ import { JJKCursedTalismans } from "../components/JJKCursedTalismans";
 import { JJKCharacterShowcase } from "../components/JJKCharacterShowcase";
 import { DomainExpansionOverlay } from "../components/DomainExpansionOverlay";
 import { useDomainTheme } from "../context/DomainThemeContext";
+import { useDomainExpansionSound } from "../hooks/useDomainExpansionSound";
 import { playClickSound, playWarpSound, playDomainExpansionSound, playBlackFlashSound, playHoverSound } from "../utils/cyberSound";
 import { ArrowRight, Sparkles, Building2, Bus, Zap, Flame, Shield, MapPin, Eye, ExternalLink, Compass } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -17,6 +18,7 @@ export const HomePage: React.FC = () => {
   const [showLoading, setShowLoading] = useState(true);
   const [isEmbarking, setIsEmbarking] = useState(false);
   const { activeDomain, setActiveDomain, isDomainOverlayOpen, openDomainOverlay, closeDomainOverlay } = useDomainTheme();
+  const { triggerDomainExpansionSound } = useDomainExpansionSound({ volume: 0.85, flavor: "authentic" });
   const modelRef = useRef<CompassHandle | null>(null);
   const navigate = useNavigate();
 
@@ -30,7 +32,8 @@ export const HomePage: React.FC = () => {
     if (isEmbarking) return;
     setIsEmbarking(true);
     setIsExpandingDomain(true);
-    playDomainExpansionSound();
+    // Authentic JJK Domain Expansion sound effect triggered via dedicated hook
+    triggerDomainExpansionSound(activeDomain.id === "malevolent_shrine" ? "shrine" : "void");
 
     // Trigger 3D spin if available
     if (modelRef.current) {
