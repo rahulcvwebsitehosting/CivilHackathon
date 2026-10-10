@@ -1,0 +1,244 @@
+import React, { useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { CIVIL_EVENT_CONFIG, CIVIL_THEMES } from "../config/constants";
+import { Navbar } from "../components/Navbar";
+import { InteractiveCursor } from "../components/InteractiveCursor";
+import { CinematicBackground } from "../components/CinematicBackground";
+import { playClickSound, playSuccessSound } from "../utils/cyberSound";
+import {
+  Users,
+  CheckCircle2,
+  Copy,
+  ExternalLink,
+  CreditCard,
+  Building2,
+  Leaf,
+  FileCheck,
+  AlertCircle
+} from "lucide-react";
+import confetti from "canvas-confetti";
+
+export const RegisterPage: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const initialCount = Math.max(3, Math.min(4, parseInt(searchParams.get("crew") || "4", 10)));
+  const [memberCount, setMemberCount] = useState<number>(initialCount);
+  const [selectedTheme, setSelectedTheme] = useState<"ecothon" | "cadathon">("cadathon");
+  const [copiedUpi, setCopiedUpi] = useState(false);
+
+  const totalFee = memberCount * CIVIL_EVENT_CONFIG.REGISTRATION_FEE_PER_MEMBER;
+
+  const handleCopyUpi = () => {
+    playClickSound();
+    navigator.clipboard.writeText(CIVIL_EVENT_CONFIG.UPI_ID);
+    setCopiedUpi(true);
+    setTimeout(() => setCopiedUpi(false), 2000);
+  };
+
+  const handleLaunchGoogleForm = () => {
+    playSuccessSound();
+    confetti({
+      particleCount: 60,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+    window.open(CIVIL_EVENT_CONFIG.GOOGLE_FORM_URL, "_blank");
+  };
+
+  return (
+    <div className="relative min-h-screen bg-[#0b1721] text-[#edf4f8] selection:bg-[#e75b2c] selection:text-white font-sans overflow-x-hidden pt-24 pb-16">
+      <InteractiveCursor />
+      <CinematicBackground />
+      <Navbar />
+
+      <main className="relative z-10 max-w-4xl mx-auto px-4">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <div className="inline-block font-mono text-xs text-[#e75b2c] tracking-widest uppercase mb-2">
+            // INNO360 · 2026 OFFICIAL REGISTRATION PORTAL
+          </div>
+          <h1 className="font-barlow text-4xl sm:text-6xl font-extrabold text-white tracking-wide mb-2">
+            TEAM <span className="text-[#64cfe6]">REGISTRATION</span>
+          </h1>
+          <p className="font-sans text-xs sm:text-sm text-[#b8cfde] max-w-xl mx-auto">
+            15th October 2026 · Kailaimani A. Munusamy Mudaliyar Arangam · ESEC Campus
+          </p>
+        </div>
+
+        {/* Instructions Box */}
+        <div className="bg-[#102d42]/90 border border-[#29404c] rounded-2xl p-6 sm:p-8 mb-8 shadow-xl">
+          <h2 className="font-barlow text-2xl font-bold text-white mb-4 flex items-center space-x-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#e75b2c]" />
+            <span>REGISTRATION GUIDELINES & STEP-BY-STEP PROCESS</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div className="bg-[#0b1721] border border-[#1f3c52] p-4 rounded-xl">
+              <span className="font-mono text-xs text-[#e75b2c] font-bold block mb-1">
+                STEP 1: TEAM SIZE
+              </span>
+              <p className="text-xs text-[#b8cfde]">
+                Form a team of <strong>3 or 4 students</strong>. EcoThon is open to all streams; CADathon is exclusively for Civil Engineering students.
+              </p>
+            </div>
+
+            <div className="bg-[#0b1721] border border-[#1f3c52] p-4 rounded-xl">
+              <span className="font-mono text-xs text-[#64cfe6] font-bold block mb-1">
+                STEP 2: PAYMENT
+              </span>
+              <p className="text-xs text-[#b8cfde]">
+                Pay once for the entire team (<strong>₹750 for 3</strong> or <strong>₹1,000 for 4</strong>). Keep the transaction screenshot ready.
+              </p>
+            </div>
+
+            <div className="bg-[#0b1721] border border-[#1f3c52] p-4 rounded-xl">
+              <span className="font-mono text-xs text-[#bcf779] font-bold block mb-1">
+                STEP 3: GOOGLE FORM
+              </span>
+              <p className="text-xs text-[#b8cfde]">
+                Submit one registration per team via the official Google Form with payment proof. Google sign-in required.
+              </p>
+            </div>
+          </div>
+
+          {/* Theme & Complement Selector */}
+          <div className="border-t border-[#1f3c52] pt-6 space-y-6">
+            <div>
+              <label className="block font-mono text-xs text-[#9cafb7] uppercase tracking-wider mb-2">
+                CHOOSE PARTICIPATION THEME
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <button
+                  type="button"
+                  onClick={() => setSelectedTheme("ecothon")}
+                  className={`p-4 rounded-xl border text-left transition-all cursor-pointer ${
+                    selectedTheme === "ecothon"
+                      ? "bg-[#183c53] border-[#bcf779] shadow-[0_0_15px_rgba(188,247,121,0.3)]"
+                      : "bg-[#0b1721] border-[#29404c] hover:border-[#64cfe6]"
+                  }`}
+                >
+                  <div className="flex items-center space-x-2 mb-1">
+                    <Leaf className="w-4 h-4 text-[#bcf779]" />
+                    <span className="font-mono text-xs text-[#bcf779] font-bold">THEME 1</span>
+                  </div>
+                  <strong className="font-barlow text-2xl text-white block">EcoThon</strong>
+                  <span className="text-xs text-[#9cafb7]">
+                    Open to All Streams (12th+ / Arts / Diploma / Engg)
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setSelectedTheme("cadathon")}
+                  className={`p-4 rounded-xl border text-left transition-all cursor-pointer ${
+                    selectedTheme === "cadathon"
+                      ? "bg-[#183c53] border-[#64cfe6] shadow-[0_0_15px_rgba(100,207,230,0.3)]"
+                      : "bg-[#0b1721] border-[#29404c] hover:border-[#64cfe6]"
+                  }`}
+                >
+                  <div className="flex items-center space-x-2 mb-1">
+                    <Building2 className="w-4 h-4 text-[#64cfe6]" />
+                    <span className="font-mono text-xs text-[#64cfe6] font-bold">THEME 2</span>
+                  </div>
+                  <strong className="font-barlow text-2xl text-white block">CADathon</strong>
+                  <span className="text-xs text-[#9cafb7]">
+                    Exclusively for Civil Engineering Students
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label className="block font-mono text-xs text-[#9cafb7] uppercase tracking-wider mb-2">
+                CHOOSE TEAM COMPLEMENT
+              </label>
+              <div className="grid grid-cols-2 gap-3">
+                {[3, 4].map(count => (
+                  <button
+                    key={count}
+                    type="button"
+                    onClick={() => setMemberCount(count)}
+                    className={`p-4 rounded-xl border-2 flex items-center justify-between transition-all cursor-pointer ${
+                      memberCount === count
+                        ? "bg-[#16384f] border-[#e75b2c] text-white shadow-md"
+                        : "bg-[#0b1721] border-[#29404c] text-[#9cafb7] hover:border-[#64cfe6]"
+                    }`}
+                  >
+                    <div className="flex items-center space-x-2">
+                      <Users className="w-5 h-5 text-[#e75b2c]" />
+                      <span className="font-barlow text-2xl font-black">{count} STUDENTS</span>
+                    </div>
+                    <span className="font-mono text-sm font-bold text-[#64cfe6]">
+                      ₹{(count * 250).toLocaleString()}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Payment Card Box */}
+          <div className="mt-8 bg-[#0b1721] border border-[#e75b2c] rounded-xl p-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#1f3c52] pb-4 mb-4">
+              <div>
+                <span className="font-mono text-xs text-[#9cafb7] uppercase block">
+                  COMBINED TEAM TRIBUTE
+                </span>
+                <div className="font-barlow text-4xl sm:text-5xl font-black text-white mt-1">
+                  ₹{totalFee.toLocaleString()}
+                </div>
+                <span className="font-mono text-xs text-[#64cfe6]">
+                  (₹250 per student × {memberCount} members)
+                </span>
+              </div>
+
+              <div className="bg-[#102d42] border border-[#29404c] p-3 rounded-xl space-y-1 text-xs font-mono">
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-[#9cafb7]">UPI ID:</span>
+                  <strong className="text-white">{CIVIL_EVENT_CONFIG.UPI_ID}</strong>
+                  <button
+                    type="button"
+                    onClick={handleCopyUpi}
+                    className="p-1 rounded bg-[#0b1721] text-[#64cfe6] hover:text-white cursor-pointer"
+                    title="Copy UPI"
+                  >
+                    <Copy className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+                {copiedUpi && (
+                  <span className="text-[10px] text-[#bcf779] block">✓ UPI ID copied!</span>
+                )}
+                <div className="text-[11px] text-[#9cafb7]">
+                  Account: {CIVIL_EVENT_CONFIG.UPI_MERCHANT_NAME}
+                </div>
+              </div>
+            </div>
+
+            <p className="font-sans text-xs text-[#b8cfde] mb-6">
+              Complete the payment once for all {memberCount} team members using any UPI app (GPay, PhonePe, Paytm). Take a screenshot of the confirmed transaction showing the UPI reference/UTR number.
+            </p>
+
+            {/* Launch Form Button */}
+            <button
+              type="button"
+              onClick={handleLaunchGoogleForm}
+              className="w-full py-4 px-6 rounded-xl font-mono font-bold text-sm uppercase tracking-wider text-white bg-[#e75b2c] hover:bg-[#ff7b47] shadow-[0_0_25px_rgba(231,91,44,0.6)] transition-all flex items-center justify-center space-x-2 cursor-pointer transform hover:-translate-y-0.5 active:scale-95"
+            >
+              <span>PROCEED TO OFFICIAL GOOGLE FORM</span>
+              <ExternalLink className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+
+        {/* Back navigation */}
+        <div className="text-center">
+          <Link
+            to="/portal"
+            className="text-xs font-mono text-[#64cfe6] hover:underline"
+          >
+            ← Return to Event Portal
+          </Link>
+        </div>
+      </main>
+    </div>
+  );
+};
