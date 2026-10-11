@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { SpotlightCard } from "../components/SpotlightCard";
 import { playClickSound, playSuccessSound } from "../utils/cyberSound";
 import { Printer, Compass, Award, Zap, Timer, CheckCircle, Crosshair } from "lucide-react";
+import { TechniqueEnergy } from "../components/JujutsuMotion";
 
 export const EntertainmentSection: React.FC = () => {
   // CAD Precision Reaction Challenge
@@ -117,7 +118,9 @@ export const EntertainmentSection: React.FC = () => {
       </div>
 
       {/* Interactive CAD Snap Reflex Game */}
-      <div className="bg-[#141011] border-2 border-[#513b3b] rounded-sm p-6 sm:p-8 max-w-2xl mx-auto text-center shadow-xl">
+      <div className={`black-flash-challenge bg-[#141011] border-2 border-[#513b3b] rounded-sm p-6 sm:p-8 max-w-2xl mx-auto text-center shadow-xl ${gameState === "success" ? "is-casting" : ""}`}>
+        <img className="black-flash-art" src="/assets/jjk/yuji-black-flash-836.webp" alt="" width="836" height="470" loading="lazy" />
+        <TechniqueEnergy technique="black-flash" />
         <div className="flex items-center justify-center space-x-2 font-mono text-xs text-[#dfb8af] uppercase tracking-wider mb-2">
           <Crosshair className="w-4 h-4 text-[#eb9287]" />
           <span>BLACK FLASH · REFLEX CHALLENGE</span>

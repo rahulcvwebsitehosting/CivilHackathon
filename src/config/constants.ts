@@ -62,7 +62,7 @@ export const JJK_DOMAIN_THEMES: JJKDomainTheme[] = [
     "name": "Unlimited Void",
     "japanese": "無量空処",
     "user": "Satoru Gojo",
-    "wallpaper": "/assets/jjk/gojo-unlimited-void.jpg",
+    "wallpaper": "/assets/jjk/gojo-infinity-1672.webp",
     "accent": "#baa6bf",
     "secondaryAccent": "#e8d8bd",
     "glow": "rgba(186,166,191,0.2)",
@@ -109,13 +109,13 @@ export const JJK_DOMAIN_THEMES: JJKDomainTheme[] = [
     "id": "black_flash_squad",
     "name": "Black Flash",
     "japanese": "黒閃",
-    "user": "Yuji, Megumi & Nobara",
-    "wallpaper": "/assets/jjk/jjk-sorcerer-team.jpg",
+    "user": "Yuji Itadori",
+    "wallpaper": "/assets/jjk/yuji-black-flash-1672.webp",
     "accent": "#d9a4a0",
     "secondaryAccent": "#e8d8bd",
     "glow": "rgba(217,164,160,0.2)",
     "description": "When intent and action align, the impossible becomes possible. Build with the unbreakable resolve of your squad.",
-    "cursedTechnique": "Black Flash × Ten Shadows"
+    "cursedTechnique": "Black Flash"
   }
 ];
 

@@ -1,0 +1,107 @@
+import React, { useEffect, useRef, useState } from "react";
+import { Pause, Play } from "lucide-react";
+import { useLocation } from "react-router-dom";
+import { useDomainTheme } from "../context/DomainThemeContext";
+
+/** Decorative movement stays optional and never intercepts navigation. */
+export const JujutsuMotion: React.FC = () => {
+  const { pathname } = useLocation();
+  const { activeDomain } = useDomainTheme();
+  const previousDomain = useRef(activeDomain.id);
+  const [manifesting, setManifesting] = useState(false);
+  const [reduced, setReduced] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [paused, setPaused] = useState(() => {
+    try { return localStorage.getItem("jjk_motion_paused") === "true"; } catch { return false; }
+  });
+  const [motionOptIn, setMotionOptIn] = useState(() => {
+    try { return localStorage.getItem("jjk_motion_opt_in") === "true"; } catch { return false; }
+  });
+  const enabled = !paused && (!reduced || motionOptIn);
+
+  useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReduced(preference.matches);
+    preference.addEventListener("change", update);
+    return () => preference.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.dataset.jjkMotion = enabled ? "running" : "paused";
+    try {
+      localStorage.setItem("jjk_motion_paused", String(paused));
+      localStorage.setItem("jjk_motion_opt_in", String(motionOptIn));
+    } catch { /* Session control still works. */ }
+  }, [enabled, paused, motionOptIn]);
+
+  useEffect(() => {
+    if (!enabled) { setManifesting(false); previousDomain.current = activeDomain.id; return; }
+    if (previousDomain.current === activeDomain.id) return;
+    previousDomain.current = activeDomain.id;
+    setManifesting(true);
+    const timer = window.setTimeout(() => setManifesting(false), 1250);
+    return () => window.clearTimeout(timer);
+  }, [activeDomain.id, enabled]);
+
+  useEffect(() => {
+    if (!enabled) return;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("jjk-revealed");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -24px 0px" });
+    const ambientObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.target.classList.toggle("is-in-view", entry.isIntersecting));
+    }, { threshold: 0 });
+    const ambientElements = new WeakSet<Element>();
+    const discover = () => {
+      document.querySelectorAll(".technique-arena, .domain-hero").forEach(element => {
+        if (ambientElements.has(element)) return;
+        ambientElements.add(element); ambientObserver.observe(element);
+      });
+      document.querySelectorAll<HTMLElement>(
+        ".section-intro, .technique-panel, .mission-facts > *, .domain-card, .portal-chapter, main > section[id] > .text-center, main > section[id] > .grid > *, .binding-vow > h2"
+      ).forEach((element, index) => {
+        if (element.classList.contains("jjk-revealed")) return;
+        element.classList.add("jjk-reveal");
+        element.style.setProperty("--reveal-delay", `${index % 3 * 85}ms`);
+        observer.observe(element);
+      });
+    };
+    discover();
+    const mutations = new MutationObserver(discover);
+    mutations.observe(document.getElementById("root")!, { childList: true, subtree: true });
+    return () => { observer.disconnect(); ambientObserver.disconnect(); mutations.disconnect(); };
+  }, [pathname, enabled]);
+
+  return <>
+    <div className="cursed-energy-field" aria-hidden="true">
+      {Array.from({ length: 14 }, (_, i) => <i key={i} style={{ "--i": i, "--drift": `${i % 2 ? -36 : 44}px` } as React.CSSProperties} />)}
+    </div>
+    {manifesting && <div className="domain-manifestation" aria-hidden="true" key={activeDomain.id}>
+      <div className="manifest-ring" /><div className="manifest-ring ring-two" />
+      <span lang="ja">{activeDomain.japanese}</span><small>{activeDomain.name}</small>
+    </div>}
+    <button type="button" className="motion-control" aria-label={enabled ? "Pause JJK animations" : "Enable JJK animations"} aria-pressed={enabled} onClick={() => { if (enabled) setPaused(true); else { setMotionOptIn(true); setPaused(false); } }}>
+      {enabled ? <Pause size={13} /> : <Play size={13} />}<span>{enabled ? "PAUSE ENERGY" : "ENABLE ANIMATIONS"}</span>
+    </button>
+  </>;
+};
+
+export type Technique = "infinity" | "shadows" | "resonance" | "black-flash";
+
+/** SVG geometry is intentionally separate from the character artwork. */
+export const TechniqueEnergy: React.FC<{ technique: Technique }> = ({ technique }) => (
+  <div className={`technique-energy energy-${technique}`} aria-hidden="true">
+    <div className="energy-orbit orbit-one" /><div className="energy-orbit orbit-two" /><div className="energy-orbit orbit-three" />
+    <svg className="energy-strokes" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+      <path className="stroke-one" d="M-40 430L280 245L208 235L480 110L430 170L840 25" />
+      <path className="stroke-two" d="M-40 80L260 230L215 270L580 340L520 385L840 480" />
+      <path className="shadow-wave" d="M-40 480Q80 270 180 440T410 410T620 380T840 450" />
+    </svg>
+    <div className="resonance-nails"><i /><i /><i /><i /><i /></div>
+    <div className="energy-sparks">{Array.from({ length: 9 }, (_, i) => <i key={i} style={{ "--i": i } as React.CSSProperties} />)}</div>
+    <div className="energy-impact" />
+  </div>
+);

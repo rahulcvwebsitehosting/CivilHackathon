@@ -1,7 +1,7 @@
 import React from "react";
 import { CIVIL_THEMES, CIVIL_EVENT_CONFIG } from "../config/constants";
 import { SpotlightCard } from "../components/SpotlightCard";
-import { JJKCharacterShowcase } from "../components/JJKCharacterShowcase";
+import { TechniqueArena } from "../components/TechniqueArena";
 import { Leaf, Building2, ExternalLink, Sparkles, Cpu, Layers, Zap } from "lucide-react";
 import { playClickSound, playBlackFlashSound, playDomainExpansionSound } from "../utils/cyberSound";
 
@@ -43,8 +43,8 @@ export const DomainsSection: React.FC = () => {
             {/* Visual Manga artwork Header - JJK Generated EcoThon */}
             <div className="h-48 relative rounded-sm overflow-hidden mb-4 border border-[#d4bd88]/30 group">
               <img
-loading="lazy" decoding="async"                 src="/assets/jjk/jjk-ecothon.jpg"
-                alt="EcoThon Megumi Divine Beast Bio-Reactor"
+loading="lazy" decoding="async"                 src="/assets/jjk/megumi-shadows-1672.webp" srcSet="/assets/jjk/megumi-shadows-836.webp 836w, /assets/jjk/megumi-shadows-1672.webp 1672w" sizes="(max-width: 767px) 100vw, 50vw" width="1672" height="941"
+                alt="Megumi Fushiguro summoning Divine Dogs"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#201819] via-black/30 to-transparent" />
@@ -53,7 +53,7 @@ loading="lazy" decoding="async"                 src="/assets/jjk/jjk-ecothon.jpg
                 <span>NATURE ENERGY & BIO-ENGINEERING</span>
               </div>
               <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between">
-                <span className="font-mono text-white font-bold text-xs">SHIKIGAMI BIO-REACTOR SYSTEM</span>
+                <span className="font-mono text-white font-bold text-xs">TEN SHADOWS · DIVINE DOGS</span>
                 <span className="font-mono text-[9px] text-[#d4bd88] font-bold">ALL STREAMS</span>
               </div>
             </div>
@@ -112,7 +112,7 @@ loading="lazy" decoding="async"                 src="/assets/jjk/jjk-ecothon.jpg
             {/* Visual Manga artwork Header - JJK Generated CADathon */}
             <div className="h-48 relative rounded-sm overflow-hidden mb-4 border border-stone-400/30 group">
               <img
-loading="lazy" decoding="async"                 src="/assets/jjk/jjk-cadathon.jpg"
+loading="lazy" decoding="async"                 src="/assets/jjk/gojo-infinity-1672.webp" srcSet="/assets/jjk/gojo-infinity-836.webp 836w, /assets/jjk/gojo-infinity-1672.webp 1672w" sizes="(max-width: 767px) 100vw, 50vw" width="1672" height="941"
                 alt="CADathon Gojo Style Cursed Matrix Blueprint"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
@@ -167,7 +167,7 @@ loading="lazy" decoding="async"                 src="/assets/jjk/jjk-cadathon.jp
       </div>
 
       {/* Sorcerer Architects & Techniques Interactive Carousel on Portal Page */}
-      <JJKCharacterShowcase />
+      <TechniqueArena initialTechnique={2} />
     </section>
   );
 };

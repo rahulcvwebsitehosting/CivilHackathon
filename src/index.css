@@ -327,6 +327,6 @@ main section[id] img[src*="/assets/jjk/"] { filter: grayscale(1) sepia(.22); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-  .domain-transition { animation: none; }
+  html:not([data-jjk-motion="running"]) *, html:not([data-jjk-motion="running"]) *::before, html:not([data-jjk-motion="running"]) *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  html:not([data-jjk-motion="running"]) .domain-transition { animation: none; }
 }
