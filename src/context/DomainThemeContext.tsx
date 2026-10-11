@@ -1,6 +1,10 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 import { JJK_DOMAIN_THEMES, JJKDomainTheme } from "../config/constants";
 
+import { playCharacterVoice } from "../utils/characterAudio";
+
+export const domainClip = (id: JJKDomainTheme["id"]) => id === "malevolent_shrine" ? "sukuna-shrine" : id === "black_flash_squad" ? "yuji-black-flash" : "gojo-void";
+
 interface DomainThemeContextType {
   activeDomain: JJKDomainTheme;
   setActiveDomain: (domain: JJKDomainTheme) => void;
@@ -24,6 +28,7 @@ export const DomainThemeProvider: React.FC<{ children: React.ReactNode }> = ({ c
   const [isDomainOverlayOpen, setIsDomainOverlayOpen] = useState(false);
 
   const setActiveDomain = (domain: JJKDomainTheme) => {
+    if (domain.id !== activeDomain.id) playCharacterVoice(domainClip(domain.id)).catch(() => {});
     setActiveDomainState(domain);
     try { localStorage.setItem("jjk_domain_theme", domain.id); } catch { /* Keep the current session usable. */ }
   };

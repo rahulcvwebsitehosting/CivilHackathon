@@ -17,6 +17,11 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
   useEffect(() => setMenuOpen(false), [location]);
   useEffect(() => {
+    const sync = () => setSoundOn(isSoundEnabled());
+    window.addEventListener("jjk-sound-change", sync);
+    return () => window.removeEventListener("jjk-sound-change", sync);
+  }, []);
+  useEffect(() => {
     if (!menuOpen) return;
     const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") setMenuOpen(false); };
     window.addEventListener("keydown", closeOnEscape);

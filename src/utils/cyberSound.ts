@@ -1,6 +1,6 @@
 // Audio Engine for INNO360 (Civil CAD Synthesizer & Speech)
 let audioCtx: AudioContext | null = null;
-let soundEnabled = false;
+let soundEnabled = true;
 
 export const getAudioContext = (): AudioContext | null => {
   if (!audioCtx && typeof window !== "undefined") {
@@ -17,6 +17,7 @@ export const getAudioContext = (): AudioContext | null => {
 
 export const toggleMute = (): boolean => {
   soundEnabled = !soundEnabled;
+  window.dispatchEvent(new Event("jjk-sound-change"));
   return soundEnabled;
 };
 

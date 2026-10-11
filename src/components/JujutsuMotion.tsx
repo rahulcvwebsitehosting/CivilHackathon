@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Pause, Play } from "lucide-react";
 import { useLocation } from "react-router-dom";
-import { useDomainTheme } from "../context/DomainThemeContext";
+import { AnimeVideo } from "./AnimeVideo";
+import { domainClip, useDomainTheme } from "../context/DomainThemeContext";
 
 /** Decorative movement stays optional and never intercepts navigation. */
 export const JujutsuMotion: React.FC = () => {
@@ -9,36 +10,24 @@ export const JujutsuMotion: React.FC = () => {
   const { activeDomain } = useDomainTheme();
   const previousDomain = useRef(activeDomain.id);
   const [manifesting, setManifesting] = useState(false);
-  const [reduced, setReduced] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const [paused, setPaused] = useState(() => {
-    try { return localStorage.getItem("jjk_motion_paused") === "true"; } catch { return false; }
+    try { return localStorage.getItem("jjk_motion_paused_v2") === "true"; } catch { return false; }
   });
-  const [motionOptIn, setMotionOptIn] = useState(() => {
-    try { return localStorage.getItem("jjk_motion_opt_in") === "true"; } catch { return false; }
-  });
-  const enabled = !paused && (!reduced || motionOptIn);
-
-  useEffect(() => {
-    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReduced(preference.matches);
-    preference.addEventListener("change", update);
-    return () => preference.removeEventListener("change", update);
-  }, []);
+  const enabled = !paused;
 
   useEffect(() => {
     document.documentElement.dataset.jjkMotion = enabled ? "running" : "paused";
     try {
-      localStorage.setItem("jjk_motion_paused", String(paused));
-      localStorage.setItem("jjk_motion_opt_in", String(motionOptIn));
+      localStorage.setItem("jjk_motion_paused_v2", String(paused));
     } catch { /* Session control still works. */ }
-  }, [enabled, paused, motionOptIn]);
+  }, [enabled, paused]);
 
   useEffect(() => {
     if (!enabled) { setManifesting(false); previousDomain.current = activeDomain.id; return; }
     if (previousDomain.current === activeDomain.id) return;
     previousDomain.current = activeDomain.id;
     setManifesting(true);
-    const timer = window.setTimeout(() => setManifesting(false), 1250);
+    const timer = window.setTimeout(() => setManifesting(false), 4000);
     return () => window.clearTimeout(timer);
   }, [activeDomain.id, enabled]);
 
@@ -80,16 +69,17 @@ export const JujutsuMotion: React.FC = () => {
       {Array.from({ length: 14 }, (_, i) => <i key={i} style={{ "--i": i, "--drift": `${i % 2 ? -36 : 44}px` } as React.CSSProperties} />)}
     </div>
     {manifesting && <div className="domain-manifestation" aria-hidden="true" key={activeDomain.id}>
+      <AnimeVideo clip={domainClip(activeDomain.id)} poster={activeDomain.wallpaper} label={`${activeDomain.name} domain animation`} />
       <div className="manifest-ring" /><div className="manifest-ring ring-two" />
       <span lang="ja">{activeDomain.japanese}</span><small>{activeDomain.name}</small>
     </div>}
-    <button type="button" className="motion-control" aria-label={enabled ? "Pause JJK animations" : "Enable JJK animations"} aria-pressed={enabled} onClick={() => { if (enabled) setPaused(true); else { setMotionOptIn(true); setPaused(false); } }}>
+    <button type="button" className="motion-control" aria-label={enabled ? "Pause JJK animations" : "Enable JJK animations"} aria-pressed={enabled} onClick={() => { setPaused(value => !value) }}>
       {enabled ? <Pause size={13} /> : <Play size={13} />}<span>{enabled ? "PAUSE ENERGY" : "ENABLE ANIMATIONS"}</span>
     </button>
   </>;
 };
 
-export type Technique = "infinity" | "shadows" | "resonance" | "black-flash";
+export type Technique = "infinity" | "shadows" | "resonance" | "black-flash" | "shrine";
 
 /** SVG geometry is intentionally separate from the character artwork. */
 export const TechniqueEnergy: React.FC<{ technique: Technique }> = ({ technique }) => (

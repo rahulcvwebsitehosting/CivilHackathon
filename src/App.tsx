@@ -2,6 +2,7 @@ import React, { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { DomainThemeProvider } from "./context/DomainThemeContext";
 import { GlobalDomainExpansionOverlay } from "./components/DomainExpansionOverlay";
+import { CursedInteractions } from "./components/CursedInteractions";
 import { JujutsuMotion } from "./components/JujutsuMotion";
 
 const PageNavigation: React.FC = () => {
@@ -44,6 +45,7 @@ export default function App() {
     <DomainThemeProvider>
       <BrowserRouter>
         <JujutsuMotion />
+        <CursedInteractions />
         <GlobalDomainExpansionOverlay />
         <Suspense fallback={<LoadingFallback />}>
           <PageNavigation />
