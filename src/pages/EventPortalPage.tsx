@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Navbar } from "../components/Navbar";
 import { InteractiveCursor } from "../components/InteractiveCursor";
 import { CinematicBackground } from "../components/CinematicBackground";
 import { CyberBotAssistant } from "../components/CyberBotAssistant";
 import { JJKCursedTalismans } from "../components/JJKCursedTalismans";
-import { DomainExpansionOverlay } from "../components/DomainExpansionOverlay";
 import { useDomainTheme } from "../context/DomainThemeContext";
 import { AboutSection } from "../sections/AboutSection";
 import { DatesSection } from "../sections/DatesSection";
@@ -23,39 +22,19 @@ import { ContactSection } from "../sections/ContactSection";
 import { Footer } from "../sections/Footer";
 
 export const EventPortalPage: React.FC = () => {
-  const { activeDomain, setActiveDomain, isDomainOverlayOpen, closeDomainOverlay } = useDomainTheme();
-
-  useEffect(() => {
-    // If arriving with a hash e.g. #transport or #tracks, scroll to it smoothly
-    if (window.location.hash) {
-      const targetId = window.location.hash.substring(1);
-      setTimeout(() => {
-        const el = document.getElementById(targetId);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 300);
-    }
-  }, []);
+  const { activeDomain } = useDomainTheme();
 
   return (
-    <div className="relative min-h-screen bg-[#070e14] text-[#edf4f8] selection:bg-[#e75b2c] selection:text-white font-sans overflow-x-hidden pt-24">
+    <div className="relative min-h-screen bg-[#0e0b0c] text-[#f2e9da] selection:bg-[#c83b35] selection:text-white font-sans overflow-x-hidden pt-32">
       {/* Interactive CAD Crosshair Cursor */}
       <InteractiveCursor />
 
-      {/* Cinematic Blueprint Atmosphere & Jujutsu Kaisen 4K Wallpaper Layer */}
+      {/* Cinematic Blueprint Atmosphere & Jujutsu Kaisen Manga artwork Layer */}
       <CinematicBackground />
 
       {/* Floating Animated Japanese Cursed Talismans */}
       <JJKCursedTalismans />
 
-      {/* Theatrical Domain Expansion Overlay */}
-      <DomainExpansionOverlay
-        isOpen={isDomainOverlayOpen}
-        activeDomain={activeDomain}
-        onSelectDomain={setActiveDomain}
-        onClose={closeDomainOverlay}
-      />
 
       {/* Top Floating Navbar with Sound & Domain Controls */}
       <Navbar />
@@ -64,7 +43,8 @@ export const EventPortalPage: React.FC = () => {
       <CyberBotAssistant />
 
       {/* Main Content Sections */}
-      <main className="relative z-10 space-y-12 sm:space-y-16">
+      <main id="main-content" className="relative z-10 space-y-12 sm:space-y-16">
+        <div className="portal-chapter"><span lang="ja" aria-hidden="true">領域</span><div><p>THE CURTAIN HAS FALLEN / YOUR MISSION BEGINS</p><h1>WELCOME TO THE DOMAIN.</h1></div><small>{activeDomain.name}</small></div>
         <AboutSection />
         <DatesSection />
         <CountdownSection />

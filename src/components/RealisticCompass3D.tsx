@@ -387,27 +387,27 @@ export const RealisticCompass3D = forwardRef<CompassHandle, RealisticCompass3DPr
     return (
       <div className={`relative w-full max-w-4xl mx-auto ${className}`}>
         {/* Model Container Panel */}
-        <div className="relative h-[380px] sm:h-[460px] md:h-[520px] w-full rounded-2xl bg-[#091724]/90 border border-[#29404c] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.8)] backdrop-blur-md">
+        <div className="relative h-[380px] sm:h-[460px] md:h-[520px] w-full rounded-sm bg-[#120e0f]/90 border border-[#513b3b] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.8)] backdrop-blur-md">
           {/* Blueprint Corner Accents */}
-          <div className="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-[#e75b2c] pointer-events-none z-10" />
-          <div className="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-[#64cfe6] pointer-events-none z-10" />
-          <div className="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-[#64cfe6] pointer-events-none z-10" />
-          <div className="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-[#e75b2c] pointer-events-none z-10" />
+          <div className="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-[#c83b35] pointer-events-none z-10" />
+          <div className="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-[#dfb8af] pointer-events-none z-10" />
+          <div className="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-[#dfb8af] pointer-events-none z-10" />
+          <div className="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-[#c83b35] pointer-events-none z-10" />
 
           {/* Top HUD Status Bar */}
           <div className="absolute top-4 left-5 right-5 z-20 flex items-center justify-between pointer-events-none">
             <div className="flex items-center space-x-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#e75b2c] animate-pulse" />
-              <span className="font-mono text-[10px] sm:text-xs text-[#64cfe6] font-semibold tracking-wider">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#c83b35] animate-pulse" />
+              <span className="font-mono text-[10px] sm:text-xs text-[#dfb8af] font-semibold tracking-wider">
                 PARAMETRIC CAD · 3D CONCRETE PRINTING MODEL
               </span>
             </div>
-            <div className="hidden sm:flex items-center space-x-3 font-mono text-[10px] text-[#9cafb7]">
+            <div className="hidden sm:flex items-center space-x-3 font-mono text-[10px] text-[#bcaea2]">
               <span>SPAN: 18,000 mm</span>
               <span>•</span>
               <span>BAY: 12,000 mm</span>
               <span>•</span>
-              <span className="text-[#e75b2c]">SCALE: 1:100</span>
+              <span className="text-[#eb9287]">SCALE: 1:100</span>
             </div>
           </div>
 
@@ -421,8 +421,8 @@ export const RealisticCompass3D = forwardRef<CompassHandle, RealisticCompass3DPr
               onClick={() => setView("iso")}
               className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded text-[10px] sm:text-xs font-mono font-semibold transition-all cursor-pointer ${
                 activeView === "iso"
-                  ? "bg-[#e75b2c] text-white shadow-[0_0_12px_rgba(231,91,44,0.6)]"
-                  : "bg-[#102d42]/80 text-[#9cafb7] hover:text-white border border-[#29404c]"
+                  ? "bg-[#c83b35] text-white shadow-[0_0_12px_rgba(200,59,53,0.6)]"
+                  : "bg-[#201819]/80 text-[#bcaea2] hover:text-white border border-[#513b3b]"
               }`}
             >
               ISOMETRIC
@@ -432,8 +432,8 @@ export const RealisticCompass3D = forwardRef<CompassHandle, RealisticCompass3DPr
               onClick={() => setView("plan")}
               className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded text-[10px] sm:text-xs font-mono font-semibold transition-all cursor-pointer ${
                 activeView === "plan"
-                  ? "bg-[#64cfe6] text-[#0b1721] font-bold shadow-[0_0_12px_rgba(100,207,230,0.6)]"
-                  : "bg-[#102d42]/80 text-[#9cafb7] hover:text-white border border-[#29404c]"
+                  ? "bg-[#dfb8af] text-[#141011] font-bold shadow-[0_0_12px_rgba(223,184,175,0.6)]"
+                  : "bg-[#201819]/80 text-[#bcaea2] hover:text-white border border-[#513b3b]"
               }`}
             >
               FLOOR PLAN
@@ -443,8 +443,8 @@ export const RealisticCompass3D = forwardRef<CompassHandle, RealisticCompass3DPr
               onClick={() => setView("elevation")}
               className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded text-[10px] sm:text-xs font-mono font-semibold transition-all cursor-pointer ${
                 activeView === "elevation"
-                  ? "bg-[#64cfe6] text-[#0b1721] font-bold shadow-[0_0_12px_rgba(100,207,230,0.6)]"
-                  : "bg-[#102d42]/80 text-[#9cafb7] hover:text-white border border-[#29404c]"
+                  ? "bg-[#dfb8af] text-[#141011] font-bold shadow-[0_0_12px_rgba(223,184,175,0.6)]"
+                  : "bg-[#201819]/80 text-[#bcaea2] hover:text-white border border-[#513b3b]"
               }`}
             >
               ELEVATION
@@ -454,8 +454,8 @@ export const RealisticCompass3D = forwardRef<CompassHandle, RealisticCompass3DPr
               onClick={() => setView("print")}
               className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded text-[10px] sm:text-xs font-mono font-semibold transition-all cursor-pointer ${
                 activeView === "print"
-                  ? "bg-[#bcf779] text-[#0b1721] font-bold shadow-[0_0_12px_rgba(188,247,121,0.6)]"
-                  : "bg-[#102d42]/80 text-[#9cafb7] hover:text-white border border-[#29404c]"
+                  ? "bg-[#d4bd88] text-[#141011] font-bold shadow-[0_0_12px_rgba(212,189,136,0.6)]"
+                  : "bg-[#201819]/80 text-[#bcaea2] hover:text-white border border-[#513b3b]"
               }`}
             >
               3D NOZZLE
@@ -474,8 +474,8 @@ export const RealisticCompass3D = forwardRef<CompassHandle, RealisticCompass3DPr
               }}
               className={`p-1.5 sm:p-2 rounded text-[10px] font-mono border transition-all cursor-pointer ${
                 isAutoRotate
-                  ? "bg-[#102d42] border-[#64cfe6] text-[#64cfe6]"
-                  : "bg-[#0b1721] border-[#29404c] text-gray-500"
+                  ? "bg-[#201819] border-[#dfb8af] text-[#dfb8af]"
+                  : "bg-[#141011] border-[#513b3b] text-gray-500"
               }`}
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isAutoRotate ? "animate-spin" : ""}`} />
@@ -488,7 +488,7 @@ export const RealisticCompass3D = forwardRef<CompassHandle, RealisticCompass3DPr
                 setRenderMode(renderMode === "blueprint" ? "solid" : "blueprint");
                 playClickSound();
               }}
-              className="px-3 py-1.5 rounded text-[10px] sm:text-xs font-mono font-bold bg-[#102d42] border border-[#64cfe6]/60 text-[#64cfe6] hover:bg-[#183c53] transition-all cursor-pointer flex items-center space-x-1.5 shadow-[0_0_10px_rgba(100,207,230,0.3)]"
+              className="px-3 py-1.5 rounded text-[10px] sm:text-xs font-mono font-bold bg-[#201819] border border-[#dfb8af]/60 text-[#dfb8af] hover:bg-[#332326] transition-all cursor-pointer flex items-center space-x-1.5 shadow-[0_0_10px_rgba(223,184,175,0.3)]"
             >
               <Box className="w-3.5 h-3.5" />
               <span>{renderMode === "blueprint" ? "WIREFRAME" : "SOLID BIM"}</span>
@@ -497,7 +497,7 @@ export const RealisticCompass3D = forwardRef<CompassHandle, RealisticCompass3DPr
 
           {/* Interactive Hint */}
           <div className="absolute top-12 left-5 z-10 pointer-events-none opacity-60 hover:opacity-100 transition-opacity">
-            <span className="font-mono text-[9px] text-[#9cafb7]">
+            <span className="font-mono text-[9px] text-[#bcaea2]">
               DRAG TO ROTATE • SCROLL TO ZOOM • TEST STRUCTURAL LAYERS
             </span>
           </div>

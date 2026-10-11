@@ -103,13 +103,13 @@ export const TimelineSection: React.FC = () => {
   return (
     <section id="schedule" className="relative py-16 sm:py-20 px-4 z-10 max-w-6xl mx-auto select-none">
       <div className="text-center mb-12">
-        <div className="inline-block font-mono text-xs text-[#e75b2c] tracking-widest uppercase mb-2">
+        <div className="inline-block font-mono text-xs text-[#eb9287] tracking-widest uppercase mb-2">
           // 12-HOUR HACKATHON SCHEDULE · 15TH OCTOBER 2026
         </div>
         <h2 className="font-barlow text-4xl sm:text-6xl font-extrabold text-white tracking-wide">
-          EVENT <span className="text-[#64cfe6]">SCHEDULE & SEQUENCE</span>
+          EVENT <span className="text-[#dfb8af]">SCHEDULE & SEQUENCE</span>
         </h2>
-        <p className="font-mono text-xs sm:text-sm text-[#9cafb7] max-w-xl mx-auto mt-2">
+        <p className="font-mono text-xs sm:text-sm text-[#bcaea2] max-w-xl mx-auto mt-2">
           A meticulously structured 12-hour itinerary ensuring seamless build time, mentor consultations, nutritious meals, and fair judging.
         </p>
       </div>
@@ -127,16 +127,16 @@ export const TimelineSection: React.FC = () => {
                   playClickSound();
                   setActiveStep(step.id);
                 }}
-                className={`w-full p-4 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between ${
+                className={`w-full p-4 rounded-sm border text-left transition-all cursor-pointer flex items-center justify-between ${
                   isSelected
-                    ? "bg-[#183c53] border-[#e75b2c] text-white shadow-lg translate-x-1"
-                    : "bg-[#102d42]/70 border-[#29404c] text-[#9cafb7] hover:border-[#64cfe6] hover:text-white"
+                    ? "bg-[#332326] border-[#c83b35] text-white shadow-lg translate-x-1"
+                    : "bg-[#201819]/70 border-[#513b3b] text-[#bcaea2] hover:border-[#dfb8af] hover:text-white"
                 }`}
               >
                 <div className="flex items-center space-x-3">
                   <span
                     className={`font-mono text-sm font-bold ${
-                      isSelected ? "text-[#e75b2c]" : "text-[#64cfe6]"
+                      isSelected ? "text-[#eb9287]" : "text-[#dfb8af]"
                     }`}
                   >
                     {step.step}
@@ -145,7 +145,7 @@ export const TimelineSection: React.FC = () => {
                     <h4 className="font-barlow text-lg font-bold text-white leading-tight">
                       {step.title}
                     </h4>
-                    <span className="font-mono text-[11px] text-[#9cafb7]">
+                    <span className="font-mono text-[11px] text-[#bcaea2]">
                       {step.time}
                     </span>
                   </div>
@@ -154,8 +154,8 @@ export const TimelineSection: React.FC = () => {
                 <span
                   className={`px-2 py-0.5 rounded text-[9px] font-mono font-bold uppercase ${
                     isSelected
-                      ? "bg-[#e75b2c] text-white"
-                      : "bg-[#0b1721] text-[#64cfe6] border border-[#29404c]"
+                      ? "bg-[#c83b35] text-white"
+                      : "bg-[#141011] text-[#dfb8af] border border-[#513b3b]"
                   }`}
                 >
                   {step.tag}
@@ -170,14 +170,14 @@ export const TimelineSection: React.FC = () => {
           {(() => {
             const current = CIVIL_SCHEDULE_STEPS.find(s => s.id === activeStep) || CIVIL_SCHEDULE_STEPS[0];
             return (
-              <div className="bg-[#0b1721] border-2 border-[#29404c] rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-36 h-36 bg-[#64cfe6]/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="bg-[#141011] border-2 border-[#513b3b] rounded-sm p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-36 h-36 bg-[#dfb8af]/10 rounded-full blur-2xl pointer-events-none" />
 
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs text-[#e75b2c] font-bold">
+                  <span className="font-mono text-xs text-[#eb9287] font-bold">
                     STAGE {current.step} OF 09
                   </span>
-                  <span className="px-3 py-1 rounded-full bg-[#102d42] border border-[#64cfe6]/40 text-[#64cfe6] font-mono text-xs font-semibold">
+                  <span className="px-3 py-1 rounded-full bg-[#201819] border border-[#dfb8af]/40 text-[#dfb8af] font-mono text-xs font-semibold">
                     {current.time}
                   </span>
                 </div>
@@ -186,21 +186,21 @@ export const TimelineSection: React.FC = () => {
                   {current.title}
                 </h3>
 
-                <div className="flex items-center space-x-2 font-mono text-xs text-[#bcf779] mb-5">
-                  <MapPin className="w-4 h-4 text-[#bcf779]" />
+                <div className="flex items-center space-x-2 font-mono text-xs text-[#d4bd88] mb-5">
+                  <MapPin className="w-4 h-4 text-[#d4bd88]" />
                   <span>{current.venue}</span>
                 </div>
 
-                <p className="font-sans text-sm text-[#edf4f8] leading-relaxed mb-6">
+                <p className="font-sans text-sm text-[#f2e9da] leading-relaxed mb-6">
                   {current.summary}
                 </p>
 
-                <div className="bg-[#102d42] border border-[#1f3c52] rounded-xl p-4 flex items-center justify-between text-xs font-mono text-[#9cafb7]">
+                <div className="bg-[#201819] border border-[#463236] rounded-sm p-4 flex items-center justify-between text-xs font-mono text-[#bcaea2]">
                   <div className="flex items-center space-x-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#64cfe6]" />
+                    <CheckCircle2 className="w-4 h-4 text-[#dfb8af]" />
                     <span>Venue: Kailaimani A. Munusamy Mudaliyar Arangam</span>
                   </div>
-                  <span className="text-[#e75b2c] font-bold">15 OCT 2026</span>
+                  <span className="text-[#eb9287] font-bold">15 OCT 2026</span>
                 </div>
               </div>
             );

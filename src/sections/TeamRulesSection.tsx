@@ -17,9 +17,9 @@ export const TeamRulesSection: React.FC = () => {
   return (
     <section id="team-rules" className="relative z-10 max-w-6xl mx-auto px-4 py-8">
       {/* Team Guidelines Box */}
-      <div className="bg-[#0b1721] border border-[#29404c] rounded-2xl p-6 sm:p-8 mb-8 shadow-md">
-        <div className="flex items-center space-x-2 font-mono text-xs text-[#64cfe6] uppercase tracking-wider mb-2">
-          <Users className="w-4 h-4 text-[#64cfe6]" />
+      <div className="bg-[#141011] border border-[#513b3b] rounded-sm p-6 sm:p-8 mb-8 shadow-md">
+        <div className="flex items-center space-x-2 font-mono text-xs text-[#dfb8af] uppercase tracking-wider mb-2">
+          <Users className="w-4 h-4 text-[#dfb8af]" />
           <span>TEAM FORMATION & PAYMENT GUIDELINES</span>
         </div>
         <h3 className="font-barlow text-3xl font-extrabold text-white mb-6">
@@ -30,10 +30,10 @@ export const TeamRulesSection: React.FC = () => {
           {TEAM_GUIDELINES.map((guide, idx) => (
             <div
               key={idx}
-              className="bg-[#102d42]/60 border border-[#1f3c52] p-4 rounded-xl flex items-start space-x-3"
+              className="bg-[#201819]/60 border border-[#463236] p-4 rounded-sm flex items-start space-x-3"
             >
-              <CheckCircle className="w-4 h-4 text-[#bcf779] flex-shrink-0 mt-0.5" />
-              <span className="font-sans text-xs text-[#edf4f8] leading-relaxed">
+              <CheckCircle className="w-4 h-4 text-[#d4bd88] flex-shrink-0 mt-0.5" />
+              <span className="font-sans text-xs text-[#f2e9da] leading-relaxed">
                 {guide}
               </span>
             </div>

@@ -38,7 +38,7 @@ export const TreasureBox: React.FC<TreasureBoxProps> = ({
           particleCount: 80,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ["#ffd700", "#00e5ff", "#ffffff", "#e5c158"]
+          colors: ["#ffd700", "#dfb8af", "#ffffff", "#e5c158"]
         });
       } catch {}
     }, 600);
@@ -64,7 +64,7 @@ export const TreasureBox: React.FC<TreasureBoxProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="relative bg-gradient-to-b from-[#241a0e] via-[#122330] to-[#04090e] border-2 border-[#ffd700] rounded-3xl p-6 sm:p-10 shadow-[0_0_70px_rgba(229,193,88,0.6)] text-left hud-corner-box overflow-hidden"
+            className="relative bg-gradient-to-b from-[#241a0e] via-[#201819] to-[#0b0909] border-2 border-[#ffd700] rounded-sm p-6 sm:p-10 shadow-[0_0_70px_rgba(229,193,88,0.6)] text-left hud-corner-box overflow-hidden"
           >
             {/* 3D Chest Header Canvas */}
             <div className="relative mx-auto w-full max-w-xs -mt-4 mb-2">
@@ -79,7 +79,7 @@ export const TreasureBox: React.FC<TreasureBoxProps> = ({
               <button
                 type="button"
                 onClick={handleClose}
-                className="flex items-center space-x-1.5 font-cinzel text-xs text-gray-300 hover:text-[#ffd700] transition-colors bg-[#08121a] border border-[#3b2b19] hover:border-[#ffd700] px-3.5 py-1.5 rounded-xl active:scale-95 shadow-md cursor-pointer"
+                className="flex items-center space-x-1.5 font-cinzel text-xs text-gray-300 hover:text-[#ffd700] transition-colors bg-[#100c0d] border border-[#3b2b19] hover:border-[#ffd700] px-3.5 py-1.5 rounded-sm active:scale-95 shadow-md cursor-pointer"
               >
                 <Lock className="w-3.5 h-3.5" />
                 <span>Re-lock Chest</span>
@@ -93,7 +93,7 @@ export const TreasureBox: React.FC<TreasureBoxProps> = ({
               transition={{ delay: 0.15, duration: 0.5 }}
               className="text-center mb-8"
             >
-              <div className="mx-auto w-16 h-16 sm:w-20 sm:h-20 mb-4 bg-gradient-to-tr from-[#ffd700] to-amber-500 rounded-2xl flex items-center justify-center shadow-[0_0_35px_#ffd700] text-black">
+              <div className="mx-auto w-16 h-16 sm:w-20 sm:h-20 mb-4 bg-gradient-to-tr from-[#ffd700] to-amber-500 rounded-sm flex items-center justify-center shadow-[0_0_35px_#ffd700] text-black">
                 <Trophy className="w-9 h-9 sm:w-11 sm:h-11 animate-bounce" />
               </div>
               <h3 className="font-pirate text-3xl sm:text-5xl text-white tracking-wide">
@@ -101,7 +101,7 @@ export const TreasureBox: React.FC<TreasureBoxProps> = ({
               </h3>
               <p className="font-cinzel text-xs sm:text-sm text-[#e5c158] uppercase tracking-widest mt-2 font-bold flex items-center justify-center flex-wrap gap-1.5">
                 <span>+ EXCLUSIVE FREE INTERNSHIP OPPORTUNITIES BY</span>
-                <span className="text-[#00e5ff] font-extrabold tracking-wider">amasQIS.ai</span>
+                <span className="text-[#dfb8af] font-extrabold tracking-wider">amasQIS.ai</span>
                 <span>FOR TOP CREWS!</span>
               </p>
             </motion.div>
@@ -111,15 +111,15 @@ export const TreasureBox: React.FC<TreasureBoxProps> = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="bg-gradient-to-r from-[#ffd700]/20 via-[#102324] to-[#00e5ff]/25 border-2 border-[#ffd700] rounded-2xl p-5 sm:p-6 shadow-[0_0_35px_rgba(0,229,255,0.25)] relative overflow-hidden mb-6"
+              className="bg-gradient-to-r from-[#ffd700]/20 via-[#181614] to-[#dfb8af]/25 border-2 border-[#ffd700] rounded-sm p-5 sm:p-6 shadow-[0_0_35px_rgba(200,59,53,0.25)] relative overflow-hidden mb-6"
             >
               <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5">
                 <div className="flex items-start sm:items-center space-x-4">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#08121a] border-2 border-[#00e5ff]/60 hover:border-[#00e5ff] p-2 flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(0,229,255,0.35)] transition-all">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-sm bg-[#100c0d] border-2 border-[#dfb8af]/60 hover:border-[#dfb8af] p-2 flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(200,59,53,0.35)] transition-all">
                     <img
                       src="/amasqis-icon.png"
                       alt="amasQIS.ai"
-                      className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]"
+                      className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(200,59,53,0.5)]"
                     />
                   </div>
                   <div>
@@ -128,7 +128,7 @@ export const TreasureBox: React.FC<TreasureBoxProps> = ({
                         👑 EXCLUSIVE PIRATE VAULT PERK
                       </span>
                       <span className="text-gray-500 text-xs hidden sm:inline">•</span>
-                      <span className="bg-[#00e5ff]/15 border border-[#00e5ff]/40 text-[#00e5ff] text-[10px] font-cinzel font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                      <span className="bg-[#dfb8af]/15 border border-[#dfb8af]/40 text-[#dfb8af] text-[10px] font-cinzel font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                         OFFERED BY amasQIS.ai
                       </span>
                     </div>
@@ -137,15 +137,15 @@ export const TreasureBox: React.FC<TreasureBoxProps> = ({
                     </h4>
                     <p className="font-cinzel text-xs text-gray-200 mt-1 max-w-xl">
                       Winning pirate crews & top performers receive direct Free Internship offers from{" "}
-                      <span className="text-[#00e5ff] font-bold">amasQIS.ai</span> (Official Jury Partner) for real-world hands-on project experience!
+                      <span className="text-[#dfb8af] font-bold">amasQIS.ai</span> (Official Jury Partner) for real-world hands-on project experience!
                     </p>
                   </div>
                 </div>
 
                 <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-2.5 flex-shrink-0 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[#ffd700]/20">
-                  <div className="bg-[#08121a]/95 border border-[#00e5ff]/50 hover:border-[#00e5ff] px-3.5 py-2 rounded-xl flex items-center space-x-2.5 shadow-[0_0_25px_rgba(0,229,255,0.25)] transition-all">
+                  <div className="bg-[#100c0d]/95 border border-[#dfb8af]/50 hover:border-[#dfb8af] px-3.5 py-2 rounded-sm flex items-center space-x-2.5 shadow-[0_0_25px_rgba(200,59,53,0.25)] transition-all">
                     <div className="text-right">
-                      <span className="block font-cinzel text-[9px] text-[#00e5ff] font-bold uppercase tracking-widest leading-none">
+                      <span className="block font-cinzel text-[9px] text-[#dfb8af] font-bold uppercase tracking-widest leading-none">
                         JURY PARTNER
                       </span>
                       <span className="block font-cinzel text-[10px] text-gray-300 tracking-wider">
@@ -159,7 +159,7 @@ export const TreasureBox: React.FC<TreasureBoxProps> = ({
                     />
                   </div>
 
-                  <div className="bg-[#08121a] border border-[#ffd700]/50 px-3 py-1.5 rounded-lg flex items-center space-x-1.5 font-cinzel text-[11px] text-[#ffd700]">
+                  <div className="bg-[#100c0d] border border-[#ffd700]/50 px-3 py-1.5 rounded-lg flex items-center space-x-1.5 font-cinzel text-[11px] text-[#ffd700]">
                     <Award className="w-3.5 h-3.5 text-[#ffd700]" />
                     <span>Real-World Projects</span>
                   </div>
@@ -193,7 +193,7 @@ export const TreasureBox: React.FC<TreasureBoxProps> = ({
 
             <button
               type="button"
-              className="relative z-10 px-8 py-3.5 sm:px-10 sm:py-4 rounded-2xl font-pirate text-xl sm:text-2xl text-black bg-gradient-to-r from-[#ffd700] via-[#e5c158] to-[#b8860b] hover:from-[#fff2a3] hover:to-[#ffd700] transition-all duration-300 shadow-[0_0_25px_#ffd700] hover:shadow-[0_0_45px_#ffd700] uppercase tracking-wider active:scale-95 flex items-center space-x-2 mx-auto font-bold cursor-pointer"
+              className="relative z-10 px-8 py-3.5 sm:px-10 sm:py-4 rounded-sm font-pirate text-xl sm:text-2xl text-black bg-gradient-to-r from-[#ffd700] via-[#e5c158] to-[#b8860b] hover:from-[#fff2a3] hover:to-[#ffd700] transition-all duration-300 shadow-[0_0_25px_#ffd700] hover:shadow-[0_0_45px_#ffd700] uppercase tracking-wider active:scale-95 flex items-center space-x-2 mx-auto font-bold cursor-pointer"
             >
               <Unlock className="w-5 h-5" />
               <span>{isOpening ? "UNLOCKING PIRATE VAULT..." : "TAP TO UNLOCK 3D CHEST"}</span>

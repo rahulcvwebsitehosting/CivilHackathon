@@ -65,16 +65,16 @@ export const CountdownSection: React.FC = () => {
 
   return (
     <section className="relative py-14 px-4 z-10 max-w-5xl mx-auto select-none">
-      <div className="bg-[#102d42]/90 border border-[#29404c] rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_10px_35px_rgba(0,0,0,0.5)]">
+      <div className="bg-[#201819]/90 border border-[#513b3b] rounded-sm p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_10px_35px_rgba(0,0,0,0.5)]">
         <div>
-          <div className="inline-flex items-center space-x-1.5 font-mono text-[11px] text-[#e75b2c] tracking-widest uppercase mb-1">
-            <Clock className="w-3.5 h-3.5 text-[#e75b2c] animate-spin" />
+          <div className="inline-flex items-center space-x-1.5 font-mono text-[11px] text-[#eb9287] tracking-widest uppercase mb-1">
+            <Clock className="w-3.5 h-3.5 text-[#eb9287] animate-spin" />
             <span>15TH OCTOBER 2026 · THURSDAY</span>
           </div>
           <h2 className="font-barlow text-3xl sm:text-4xl font-extrabold text-white">
             COUNTDOWN TO EVENT DAY
           </h2>
-          <p className="font-mono text-xs text-[#9cafb7] mt-1">
+          <p className="font-mono text-xs text-[#bcaea2] mt-1">
             Counting down to 15th October 2026 · IST
           </p>
         </div>
@@ -84,12 +84,12 @@ export const CountdownSection: React.FC = () => {
           {timeBlocks.map((block, idx) => (
             <div
               key={idx}
-              className="bg-[#0b1721] border border-[#29404c] rounded-xl px-3 py-2.5 sm:px-5 sm:py-3.5 flex flex-col items-center justify-center min-w-[62px] sm:min-w-[80px]"
+              className="bg-[#141011] border border-[#513b3b] rounded-sm px-3 py-2.5 sm:px-5 sm:py-3.5 flex flex-col items-center justify-center min-w-[62px] sm:min-w-[80px]"
             >
-              <div className="font-barlow text-3xl sm:text-4xl font-black text-[#64cfe6] leading-none">
+              <div className="font-barlow text-3xl sm:text-4xl font-black text-[#dfb8af] leading-none">
                 {String(block.value).padStart(2, "0")}
               </div>
-              <div className="font-mono text-[9px] sm:text-[10px] text-[#9cafb7] font-semibold tracking-wider uppercase mt-1">
+              <div className="font-mono text-[9px] sm:text-[10px] text-[#bcaea2] font-semibold tracking-wider uppercase mt-1">
                 {block.label}
               </div>
             </div>
@@ -103,7 +103,7 @@ export const CountdownSection: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playClickSound()}
-            className="inline-flex items-center space-x-2 px-5 py-3 rounded-xl bg-[#e75b2c] hover:bg-[#ff7b47] text-white font-mono text-xs font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(231,91,44,0.5)] transition-all cursor-pointer whitespace-nowrap"
+            className="inline-flex items-center space-x-2 px-5 py-3 rounded-sm bg-[#c83b35] hover:bg-[#a62c28] text-white font-mono text-xs font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(200,59,53,0.5)] transition-all cursor-pointer whitespace-nowrap"
           >
             <span>REGISTER NOW</span>
             <ExternalLink className="w-3.5 h-3.5" />

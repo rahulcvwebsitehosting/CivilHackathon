@@ -50,31 +50,31 @@ export const BusTransportSection: React.FC = () => {
   return (
     <section id="transport" className="relative z-10 max-w-6xl mx-auto px-4 scroll-mt-24">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 border-b border-[#1f3c52] pb-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 border-b border-[#463236] pb-6">
         <div>
-          <div className="flex items-center space-x-2 text-[10px] sm:text-xs font-mono text-[#e75b2c] tracking-widest uppercase mb-1">
+          <div className="flex items-center space-x-2 text-[10px] sm:text-xs font-mono text-[#eb9287] tracking-widest uppercase mb-1">
             <Bus className="w-3.5 h-3.5" />
             <span>CAMPUS LOGISTICS & CONNECTIVITY</span>
-            <span className="text-[#64cfe6]">· SPECIAL GRADE RAPID CONVOY</span>
+            <span className="text-[#dfb8af]">· SPECIAL GRADE RAPID CONVOY</span>
           </div>
           <h2 className="font-barlow text-3xl sm:text-5xl font-black text-white tracking-tight uppercase">
-            FIND YOUR <span className="text-[#e75b2c]">BUS ROUTE.</span>
+            FIND YOUR <span className="text-[#eb9287]">BUS ROUTE.</span>
           </h2>
-          <p className="text-xs sm:text-sm text-[#9cafb7] mt-1 max-w-xl">
+          <p className="text-xs sm:text-sm text-[#bcaea2] mt-1 max-w-xl">
             <strong className="text-white">41 Dedicated College Bus Routes</strong> running across Erode, Tirupur, Salem, Coimbatore border, Namakkal, and Gobichettipalayam districts directly to ESEC campus for INNO360.
           </p>
         </div>
 
         {/* Transport Manager Direct Hotline Card */}
-        <div className="bg-[#102d42]/90 border-2 border-[#64cfe6]/40 p-4 rounded-2xl shadow-[0_0_20px_rgba(100,207,230,0.15)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="bg-[#201819]/90 border-2 border-[#dfb8af]/40 p-4 rounded-sm shadow-[0_0_20px_rgba(223,184,175,0.15)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <span className="font-mono text-[10px] text-[#9cafb7] uppercase tracking-wider block">
+            <span className="font-mono text-[10px] text-[#bcaea2] uppercase tracking-wider block">
               TRANSPORT MANAGER · ESEC
             </span>
             <h3 className="text-sm sm:text-base font-bold text-white">
               {TRANSPORT_MANAGER.name}
             </h3>
-            <span className="text-[11px] text-[#64cfe6] font-mono">
+            <span className="text-[11px] text-[#dfb8af] font-mono">
               Call to confirm pickup stop & hackathon day timing
             </span>
           </div>
@@ -82,7 +82,7 @@ export const BusTransportSection: React.FC = () => {
           <a
             href={`tel:${TRANSPORT_MANAGER.phone}`}
             onClick={() => playClickSound()}
-            className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-[#e75b2c] hover:bg-[#ff7b47] text-white font-mono text-xs font-bold shadow-[0_0_15px_rgba(231,91,44,0.4)] transition-all cursor-pointer whitespace-nowrap"
+            className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-sm bg-[#c83b35] hover:bg-[#a62c28] text-white font-mono text-xs font-bold shadow-[0_0_15px_rgba(200,59,53,0.4)] transition-all cursor-pointer whitespace-nowrap"
           >
             <Phone className="w-3.5 h-3.5" />
             <span>CALL {TRANSPORT_MANAGER.phone} ↗</span>
@@ -91,8 +91,8 @@ export const BusTransportSection: React.FC = () => {
       </div>
 
       {/* Advisory Warning Note */}
-      <div className="mb-6 bg-[#0f2434] border border-[#ff9a64]/30 rounded-xl p-3.5 sm:p-4 text-xs text-[#b8cfde] flex items-start space-x-3">
-        <ShieldCheck className="w-4 h-4 text-[#ff9a64] shrink-0 mt-0.5" />
+      <div className="mb-6 bg-[#1c1516] border border-[#eab6a1]/30 rounded-sm p-3.5 sm:p-4 text-xs text-[#d8c9bb] flex items-start space-x-3">
+        <ShieldCheck className="w-4 h-4 text-[#eab6a1] shrink-0 mt-0.5" />
         <div>
           <span className="font-bold text-white">Before you travel: </span>
           Call your specific route driver or the transport manager above to confirm your pickup stop and boarding time for the 15th October 2026 hackathon. Timings shown below are departures from the starting terminal, not individual interim stops.
@@ -102,13 +102,14 @@ export const BusTransportSection: React.FC = () => {
       {/* Search Bar & Quick Filter Pills */}
       <div className="space-y-3 mb-6">
         <div className="relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64cfe6]" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#dfb8af]" />
           <input
             type="search"
+            aria-label="Search bus routes by town, stop, or route number"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search your town, stop, or route number (e.g. Erode, Tirupur, Gobi, Route 26)..."
-            className="w-full pl-11 pr-12 py-3.5 rounded-xl bg-[#0f2537] border border-[#29404c] focus:border-[#64cfe6] text-white placeholder-[#688596] text-xs sm:text-sm font-sans focus:outline-none focus:ring-1 focus:ring-[#64cfe6] shadow-inner transition-colors"
+            className="w-full pl-11 pr-12 py-3.5 rounded-sm bg-[#1c1516] border border-[#513b3b] focus:border-[#dfb8af] text-white placeholder-[#b7a49a] text-xs sm:text-sm font-sans focus:outline-none focus:ring-1 focus:ring-[#dfb8af] shadow-inner transition-colors"
           />
           {searchQuery && (
             <button
@@ -117,7 +118,7 @@ export const BusTransportSection: React.FC = () => {
                 setSearchQuery("");
                 playClickSound();
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#9cafb7] hover:text-white cursor-pointer"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#bcaea2] hover:text-white cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
@@ -126,7 +127,7 @@ export const BusTransportSection: React.FC = () => {
 
         {/* Quick Filter Buttons */}
         <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-          <span className="font-mono text-[10px] text-[#9cafb7] uppercase mr-1">
+          <span className="font-mono text-[10px] text-[#bcaea2] uppercase mr-1">
             Quick Towns:
           </span>
           {QUICK_FILTERS.map((f) => {
@@ -142,8 +143,8 @@ export const BusTransportSection: React.FC = () => {
                 onMouseEnter={() => playHoverSound()}
                 className={`px-3 py-1 rounded-lg font-mono text-[11px] transition-all cursor-pointer ${
                   active
-                    ? "bg-[#64cfe6] text-[#0b1721] font-bold shadow-[0_0_10px_rgba(100,207,230,0.5)]"
-                    : "bg-[#102d42] text-[#9cafb7] hover:text-white border border-[#29404c] hover:border-[#64cfe6]/50"
+                    ? "bg-[#dfb8af] text-[#141011] font-bold shadow-[0_0_10px_rgba(223,184,175,0.5)]"
+                    : "bg-[#201819] text-[#bcaea2] hover:text-white border border-[#513b3b] hover:border-[#dfb8af]/50"
                 }`}
               >
                 {f.label}
@@ -154,15 +155,15 @@ export const BusTransportSection: React.FC = () => {
       </div>
 
       {/* Results Header Count */}
-      <div className="flex items-center justify-between font-mono text-xs text-[#9cafb7] mb-4">
+      <div className="flex items-center justify-between font-mono text-xs text-[#bcaea2] mb-4">
         <span>
-          Showing <strong className="text-[#64cfe6]">{filteredRoutes.length}</strong> of {COLLEGE_BUS_ROUTES.length} routes
+          Showing <strong className="text-[#dfb8af]">{filteredRoutes.length}</strong> of {COLLEGE_BUS_ROUTES.length} routes
         </span>
         {searchQuery && (
           <button
             type="button"
             onClick={() => setSearchQuery("")}
-            className="text-[#e75b2c] hover:underline cursor-pointer"
+            className="text-[#eb9287] hover:underline cursor-pointer"
           >
             Reset filter
           </button>
@@ -171,16 +172,16 @@ export const BusTransportSection: React.FC = () => {
 
       {/* Bus Routes Grid Directory */}
       {filteredRoutes.length === 0 ? (
-        <div className="bg-[#102d42]/50 border border-dashed border-[#29404c] rounded-2xl p-8 sm:p-12 text-center space-y-3">
-          <Bus className="w-10 h-10 text-[#9cafb7] mx-auto opacity-50" />
+        <div className="bg-[#201819]/50 border border-dashed border-[#513b3b] rounded-sm p-8 sm:p-12 text-center space-y-3">
+          <Bus className="w-10 h-10 text-[#bcaea2] mx-auto opacity-50" />
           <h3 className="text-lg font-bold text-white font-barlow uppercase">No Matching Routes Found</h3>
-          <p className="text-xs text-[#9cafb7] max-w-md mx-auto">
-            Try searching a nearby junction or town, or directly contact the transport manager at <a href={`tel:${TRANSPORT_MANAGER.phone}`} className="text-[#e75b2c] underline">{TRANSPORT_MANAGER.phone}</a> for custom boarding assistance.
+          <p className="text-xs text-[#bcaea2] max-w-md mx-auto">
+            Try searching a nearby junction or town, or directly contact the transport manager at <a href={`tel:${TRANSPORT_MANAGER.phone}`} className="text-[#eb9287] underline">{TRANSPORT_MANAGER.phone}</a> for custom boarding assistance.
           </p>
           <button
             type="button"
             onClick={() => setSearchQuery("")}
-            className="px-4 py-2 rounded-xl bg-[#64cfe6] text-[#0b1721] font-mono text-xs font-bold cursor-pointer"
+            className="px-4 py-2 rounded-sm bg-[#dfb8af] text-[#141011] font-mono text-xs font-bold cursor-pointer"
           >
             Show All 41 Routes
           </button>
@@ -190,47 +191,47 @@ export const BusTransportSection: React.FC = () => {
           {filteredRoutes.map((route) => (
             <div
               key={route.id}
-              className="bg-[#102d42]/75 hover:bg-[#14364f] border border-[#29404c] hover:border-[#64cfe6]/60 rounded-xl p-4 transition-all duration-200 shadow-md hover:shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex flex-col justify-between group relative overflow-hidden"
+              className="bg-[#201819]/75 hover:bg-[#2b1e20] border border-[#513b3b] hover:border-[#dfb8af]/60 rounded-sm p-4 transition-all duration-200 shadow-md hover:shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex flex-col justify-between group relative overflow-hidden"
             >
               {/* Top Accent Strip */}
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#e75b2c] via-[#64cfe6] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#c83b35] via-[#dfb8af] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
               <div>
                 {/* Route Number & Departure Time */}
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded bg-[#0b1721] border border-[#64cfe6]/40 text-[#64cfe6]">
+                  <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded bg-[#141011] border border-[#dfb8af]/40 text-[#dfb8af]">
                     {route.routeNumber}
                   </span>
-                  <div className="flex items-center space-x-1 font-mono text-xs text-[#bcf779]">
+                  <div className="flex items-center space-x-1 font-mono text-xs text-[#d4bd88]">
                     <Clock className="w-3.5 h-3.5" />
                     <span>{route.time}</span>
                   </div>
                 </div>
 
                 {/* Primary Destination */}
-                <h3 className="font-barlow font-bold text-lg sm:text-xl text-white group-hover:text-[#64cfe6] transition-colors leading-tight">
+                <h3 className="font-barlow font-bold text-lg sm:text-xl text-white group-hover:text-[#dfb8af] transition-colors leading-tight">
                   {route.destination}
                 </h3>
 
                 {/* Via Stops */}
-                <p className="text-xs text-[#9cafb7] mt-1 line-clamp-2">
-                  <span className="text-[#ff9a64] font-medium font-mono text-[11px]">VIA:</span> {route.via}
+                <p className="text-xs text-[#bcaea2] mt-1 line-clamp-2">
+                  <span className="text-[#eab6a1] font-medium font-mono text-[11px]">VIA:</span> {route.via}
                 </p>
 
                 {/* Starts At Terminal */}
-                <div className="mt-2 text-[11px] font-mono text-[#9cafb7] flex items-center space-x-1">
-                  <MapPin className="w-3 h-3 text-[#e75b2c]" />
+                <div className="mt-2 text-[11px] font-mono text-[#bcaea2] flex items-center space-x-1">
+                  <MapPin className="w-3 h-3 text-[#eb9287]" />
                   <span>Starts at: <strong className="text-white">{route.startsAt}</strong> · IST</span>
                 </div>
               </div>
 
               {/* Driver Call Button */}
-              <div className="mt-4 pt-3 border-t border-[#1f3c52] flex items-center justify-between">
-                <span className="text-[10px] font-mono text-[#688596] uppercase">Route In-Charge</span>
+              <div className="mt-4 pt-3 border-t border-[#463236] flex items-center justify-between">
+                <span className="text-[10px] font-mono text-[#b7a49a] uppercase">Route In-Charge</span>
                 <a
                   href={`tel:${route.phone}`}
                   onClick={() => playClickSound()}
-                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-[#0b1721] hover:bg-[#e75b2c] border border-[#29404c] hover:border-[#e75b2c] text-[#64cfe6] hover:text-white font-mono text-xs font-bold transition-all cursor-pointer group-hover:border-[#64cfe6]/40"
+                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-[#141011] hover:bg-[#c83b35] border border-[#513b3b] hover:border-[#c83b35] text-[#dfb8af] hover:text-white font-mono text-xs font-bold transition-all cursor-pointer group-hover:border-[#dfb8af]/40"
                   aria-label={`Call route ${route.id}: ${route.phone}`}
                 >
                   <Phone className="w-3 h-3" />
@@ -243,24 +244,24 @@ export const BusTransportSection: React.FC = () => {
       )}
 
       {/* Official Footnote & Source Citation */}
-      <div className="mt-8 pt-4 border-t border-[#1f3c52] flex flex-col sm:flex-row items-center justify-between text-xs text-[#9cafb7] gap-3">
+      <div className="mt-8 pt-4 border-t border-[#463236] flex flex-col sm:flex-row items-center justify-between text-xs text-[#bcaea2] gap-3">
         <div>
           <span>Data verified from </span>
           <a
             href={TRANSPORT_MANAGER.transportPageUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#64cfe6] hover:underline font-mono inline-flex items-center space-x-1"
+            className="text-[#dfb8af] hover:underline font-mono inline-flex items-center space-x-1"
           >
             <span>Official ESEC Transport Portal</span>
             <ExternalLink className="w-3 h-3 inline" />
           </a>
-          <span className="block text-[11px] text-[#688596] mt-0.5">Checked October 2026 · All timings IST</span>
+          <span className="block text-[11px] text-[#b7a49a] mt-0.5">Checked October 2026 · All timings IST</span>
         </div>
 
         <a
           href="#contacts"
-          className="text-xs font-mono text-[#e75b2c] hover:underline inline-flex items-center space-x-1"
+          className="text-xs font-mono text-[#eb9287] hover:underline inline-flex items-center space-x-1"
         >
           <span>Have travel queries? Ask event coordinators</span>
           <ArrowRight className="w-3 h-3" />

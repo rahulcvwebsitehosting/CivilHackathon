@@ -1,6 +1,6 @@
 // Audio Engine for INNO360 (Civil CAD Synthesizer & Speech)
 let audioCtx: AudioContext | null = null;
-let soundEnabled = true;
+let soundEnabled = false;
 
 export const getAudioContext = (): AudioContext | null => {
   if (!audioCtx && typeof window !== "undefined") {

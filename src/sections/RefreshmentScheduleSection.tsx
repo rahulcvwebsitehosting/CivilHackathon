@@ -17,7 +17,7 @@ const CIVIL_MEAL_SESSIONS: MealSession[] = [
     numeral: "01",
     title: "Welcome Morning Tea",
     time: "08:00 AM – 09:00 AM",
-    item: "☕ Hot Tea & Biscuits",
+    item: "Hot Tea & Biscuits",
     location: "Auditorium Reception Foyer",
     description: "Served during participant reporting, Google Form check-in, and badge handover.",
     icon: Coffee
@@ -26,7 +26,7 @@ const CIVIL_MEAL_SESSIONS: MealSession[] = [
     numeral: "02",
     title: "Morning High Tea & Snacks",
     time: "11:30 AM – 12:00 PM",
-    item: "☕ Hot Beverages & Light Snacks",
+    item: "Hot Beverages & Light Snacks",
     location: "Arangam Refreshment Counters",
     description: "Quick refreshing energy boost mid-way through preliminary drafting and ideation.",
     icon: Coffee
@@ -35,7 +35,7 @@ const CIVIL_MEAL_SESSIONS: MealSession[] = [
     numeral: "03",
     title: "Grand Working Lunch",
     time: "01:00 PM – 02:00 PM",
-    item: "🍛 Wholesome South Indian Lunch Buffet",
+    item: "Wholesome South Indian Lunch Buffet",
     location: "Campus Main Dining Hall",
     description: "Delicious lunch provided for all registered student participants and faculty guides.",
     icon: Utensils
@@ -44,7 +44,7 @@ const CIVIL_MEAL_SESSIONS: MealSession[] = [
     numeral: "04",
     title: "Evening High Tea & Savouries",
     time: "04:30 PM – 05:00 PM",
-    item: "☕ Evening Tea & Crispy Savouries",
+    item: "Evening Tea & Crispy Savouries",
     location: "Arangam Refreshment Counters",
     description: "Hot beverages before the final submission sprint and jury demonstrations.",
     icon: Coffee
@@ -55,13 +55,13 @@ export const RefreshmentScheduleSection: React.FC = () => {
   return (
     <section id="refreshments" className="relative py-16 sm:py-20 px-4 z-10 max-w-5xl mx-auto select-none">
       <div className="text-center mb-12">
-        <div className="inline-block font-mono text-xs text-[#e75b2c] tracking-widest uppercase mb-2">
+        <div className="inline-block font-mono text-xs text-[#eb9287] tracking-widest uppercase mb-2">
           // HOSPITALITY & DINING SCHEDULE
         </div>
         <h2 className="font-barlow text-4xl sm:text-6xl font-extrabold text-white tracking-wide">
-          LUNCH + <span className="text-[#64cfe6]">REFRESHMENTS</span>
+          LUNCH + <span className="text-[#dfb8af]">REFRESHMENTS</span>
         </h2>
-        <p className="font-mono text-xs sm:text-sm text-[#9cafb7] max-w-lg mx-auto mt-1">
+        <p className="font-mono text-xs sm:text-sm text-[#bcaea2] max-w-lg mx-auto mt-1">
           Wholesome meals and hot beverages included throughout the 12-hour event duration.
         </p>
       </div>
@@ -72,14 +72,14 @@ export const RefreshmentScheduleSection: React.FC = () => {
           return (
             <div
               key={idx}
-              className="bg-[#102d42]/90 border border-[#29404c] rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-md hover:border-[#64cfe6] transition-all"
+              className="bg-[#201819]/90 border border-[#513b3b] rounded-sm p-5 sm:p-6 flex flex-col justify-between shadow-md hover:border-[#dfb8af] transition-all"
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono text-xs text-[#e75b2c] font-bold">
+                  <span className="font-mono text-xs text-[#eb9287] font-bold">
                     SESSION {session.numeral}
                   </span>
-                  <span className="font-mono text-[11px] text-[#64cfe6] bg-[#0b1721] px-2.5 py-0.5 rounded border border-[#29404c]">
+                  <span className="font-mono text-[11px] text-[#dfb8af] bg-[#141011] px-2.5 py-0.5 rounded border border-[#513b3b]">
                     {session.time}
                   </span>
                 </div>
@@ -88,18 +88,18 @@ export const RefreshmentScheduleSection: React.FC = () => {
                   {session.item}
                 </h3>
 
-                <p className="font-sans text-xs text-[#b8cfde] leading-relaxed mb-4">
+                <p className="font-sans text-xs text-[#d8c9bb] leading-relaxed mb-4">
                   {session.description}
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-[#1f3c52] flex items-center justify-between text-[11px] font-mono text-[#9cafb7]">
+              <div className="pt-3 border-t border-[#463236] flex items-center justify-between text-[11px] font-mono text-[#bcaea2]">
                 <div className="flex items-center space-x-1">
-                  <Clock className="w-3.5 h-3.5 text-[#e75b2c]" />
+                  <Clock className="w-3.5 h-3.5 text-[#eb9287]" />
                   <span>{session.time}</span>
                 </div>
                 <div className="flex items-center space-x-1 truncate max-w-[200px]">
-                  <MapPin className="w-3.5 h-3.5 text-[#64cfe6] flex-shrink-0" />
+                  <MapPin className="w-3.5 h-3.5 text-[#dfb8af] flex-shrink-0" />
                   <span className="truncate">{session.location}</span>
                 </div>
               </div>
@@ -109,15 +109,15 @@ export const RefreshmentScheduleSection: React.FC = () => {
       </div>
 
       {/* Campus Wi-Fi & Facility Info */}
-      <div className="bg-[#0b1721] border border-[#29404c] rounded-2xl p-6 text-center">
-        <div className="inline-flex items-center space-x-2 font-mono text-xs text-[#bcf779] uppercase mb-1">
-          <Wifi className="w-4 h-4 text-[#bcf779]" />
+      <div className="bg-[#141011] border border-[#513b3b] rounded-sm p-6 text-center">
+        <div className="inline-flex items-center space-x-2 font-mono text-xs text-[#d4bd88] uppercase mb-1">
+          <Wifi className="w-4 h-4 text-[#d4bd88]" />
           <span>CAMPUS HIGH-SPEED INTERNET CONNECTIVITY</span>
         </div>
         <h4 className="font-barlow text-2xl font-bold text-white">
           COMPLIMENTARY VENUE WI-FI & POWER STRIPS
         </h4>
-        <p className="font-sans text-xs text-[#9cafb7] max-w-xl mx-auto mt-1 leading-relaxed">
+        <p className="font-sans text-xs text-[#bcaea2] max-w-xl mx-auto mt-1 leading-relaxed">
           High-bandwidth Wi-Fi network credentials and dedicated power sockets will be provided for all participant desks across the auditorium.
         </p>
       </div>

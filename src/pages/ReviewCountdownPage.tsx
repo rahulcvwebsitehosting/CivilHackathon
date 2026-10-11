@@ -98,20 +98,20 @@ const AGENDA_EVENTS: AgendaEvent[] = [
 
 export const ReviewCountdownPage: React.FC = () => {
   return (
-    <div className="relative min-h-screen bg-[#0b1721] text-[#edf4f8] selection:bg-[#e75b2c] selection:text-white font-sans overflow-x-hidden pt-24 pb-16">
+    <div className="relative min-h-screen bg-[#141011] text-[#f2e9da] selection:bg-[#c83b35] selection:text-white font-sans overflow-x-hidden pt-32 pb-16">
       <InteractiveCursor />
       <CinematicBackground />
       <Navbar />
 
-      <main className="relative z-10 max-w-5xl mx-auto px-4">
+      <main id="main-content" className="relative z-10 max-w-5xl mx-auto px-4">
         <div className="text-center mb-10">
-          <div className="inline-block font-mono text-xs text-[#e75b2c] tracking-widest uppercase mb-2">
+          <div className="inline-block font-mono text-xs text-[#eb9287] tracking-widest uppercase mb-2">
             // LIVE AUDITORIUM ITINERARY
           </div>
           <h1 className="font-barlow text-4xl sm:text-6xl font-extrabold text-white tracking-wide mb-2">
-            WAR ROOM <span className="text-[#64cfe6]">REVIEW SCHEDULE</span>
+            WAR ROOM <span className="text-[#dfb8af]">REVIEW SCHEDULE</span>
           </h1>
-          <p className="font-sans text-xs sm:text-sm text-[#b8cfde] max-w-xl mx-auto">
+          <p className="font-sans text-xs sm:text-sm text-[#d8c9bb] max-w-xl mx-auto">
             15th October 2026 · Kailaimani A. Munusamy Mudaliyar Arangam · ESEC Campus
           </p>
         </div>
@@ -121,28 +121,28 @@ export const ReviewCountdownPage: React.FC = () => {
           {AGENDA_EVENTS.map(ev => (
             <div
               key={ev.id}
-              className={`p-5 rounded-2xl border transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
+              className={`p-5 rounded-sm border transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
                 ev.highlight
-                  ? "bg-[#183c53]/90 border-[#64cfe6] shadow-[0_0_20px_rgba(100,207,230,0.2)]"
-                  : "bg-[#102d42]/70 border-[#29404c]"
+                  ? "bg-[#332326]/90 border-[#dfb8af] shadow-[0_0_20px_rgba(223,184,175,0.2)]"
+                  : "bg-[#201819]/70 border-[#513b3b]"
               }`}
             >
               <div className="flex items-start sm:items-center space-x-4">
-                <span className="font-mono text-sm text-[#e75b2c] font-bold">
+                <span className="font-mono text-sm text-[#eb9287] font-bold">
                   {String(ev.id).padStart(2, "0")}
                 </span>
                 <div>
                   <h3 className="font-barlow text-2xl font-bold text-white">
                     {ev.title}
                   </h3>
-                  <p className="font-sans text-xs text-[#b8cfde] mt-0.5">
+                  <p className="font-sans text-xs text-[#d8c9bb] mt-0.5">
                     {ev.details}
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-2 font-mono text-xs text-[#64cfe6] bg-[#0b1721] px-3 py-1.5 rounded-xl border border-[#29404c] whitespace-nowrap self-start sm:self-center">
-                <Clock className="w-3.5 h-3.5 text-[#e75b2c]" />
+              <div className="flex items-center space-x-2 font-mono text-xs text-[#dfb8af] bg-[#141011] px-3 py-1.5 rounded-sm border border-[#513b3b] whitespace-nowrap self-start sm:self-center">
+                <Clock className="w-3.5 h-3.5 text-[#eb9287]" />
                 <span>{ev.time}</span>
               </div>
             </div>
@@ -152,7 +152,7 @@ export const ReviewCountdownPage: React.FC = () => {
         <div className="text-center">
           <Link
             to="/portal"
-            className="text-xs font-mono text-[#64cfe6] hover:underline"
+            className="text-xs font-mono text-[#dfb8af] hover:underline"
           >
             ← Return to Event Portal
           </Link>

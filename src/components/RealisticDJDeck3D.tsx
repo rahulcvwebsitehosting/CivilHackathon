@@ -53,15 +53,15 @@ export const RealisticDJDeck3D: React.FC = () => {
     <div
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
-      className="relative bg-gradient-to-br from-[#180d04] via-[#091522] to-[#12071a] border-2 border-[#ffd700]/50 rounded-3xl p-5 sm:p-8 shadow-[0_0_50px_rgba(255,215,0,0.25)] select-none overflow-hidden hud-corner-box"
+      className="relative bg-gradient-to-br from-[#180d04] via-[#120e0f] to-[#12071a] border-2 border-[#ffd700]/50 rounded-sm p-5 sm:p-8 shadow-[0_0_50px_rgba(255,215,0,0.25)] select-none overflow-hidden hud-corner-box"
     >
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#ffd700]/25 pb-4 mb-6">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-xl bg-[#241407] border border-[#ffd700] flex items-center justify-center text-[#ffd700] shadow-[0_0_15px_rgba(255,215,0,0.4)]">
+          <div className="w-10 h-10 rounded-sm bg-[#241407] border border-[#ffd700] flex items-center justify-center text-[#ffd700] shadow-[0_0_15px_rgba(255,215,0,0.4)]">
             <Radio className="w-5 h-5 animate-pulse" />
           </div>
           <div>
-            <span className="block font-cinzel text-[10px] text-[#00e5ff] font-bold tracking-widest uppercase">
+            <span className="block font-cinzel text-[10px] text-[#dfb8af] font-bold tracking-widest uppercase">
               MIDNIGHT DJ TAVERN // LIVE DECK
             </span>
             <h3 className="font-pirate text-2xl sm:text-3xl text-white tracking-wide">
@@ -72,7 +72,7 @@ export const RealisticDJDeck3D: React.FC = () => {
 
         {/* BPM & Status */}
         <div className="flex items-center space-x-3">
-          <div className="bg-[#050b12] border border-[#ffd700]/40 px-3 py-1 rounded-xl font-mono text-xs text-[#ffd700] flex items-center space-x-1.5 shadow-inner">
+          <div className="bg-[#0d0b0b] border border-[#ffd700]/40 px-3 py-1 rounded-sm font-mono text-xs text-[#ffd700] flex items-center space-x-1.5 shadow-inner">
             <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
             <span>128.0 BPM</span>
           </div>
@@ -82,7 +82,7 @@ export const RealisticDJDeck3D: React.FC = () => {
               playClickSound();
               setIsPlaying(!isPlaying);
             }}
-            className="px-3.5 py-1 rounded-xl bg-[#ffd700]/15 border border-[#ffd700] text-[#ffd700] hover:bg-[#ffd700] hover:text-black font-cinzel font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
+            className="px-3.5 py-1 rounded-sm bg-[#ffd700]/15 border border-[#ffd700] text-[#ffd700] hover:bg-[#ffd700] hover:text-black font-cinzel font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
           >
             {isPlaying ? "PAUSE DECK" : "START DECK"}
           </button>
@@ -127,7 +127,7 @@ export const RealisticDJDeck3D: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-3 flex items-center space-x-2 text-xs font-cinzel text-cyan-300 font-bold uppercase tracking-wider">
+          <div className="mt-3 flex items-center space-x-2 text-xs font-cinzel text-stone-300 font-bold uppercase tracking-wider">
             <Disc className="w-3.5 h-3.5 animate-spin" />
             <span>CLICK & DRAG TO SCRATCH VINYL</span>
           </div>
@@ -135,7 +135,7 @@ export const RealisticDJDeck3D: React.FC = () => {
 
         {/* Right: Sound FX Buttons & Audio Visualizer */}
         <div className="md:col-span-5 space-y-4">
-          <div className="bg-[#050b12] border border-[#ffd700]/30 rounded-2xl p-4">
+          <div className="bg-[#0d0b0b] border border-[#ffd700]/30 rounded-sm p-4">
             <span className="block font-cinzel text-[10px] text-[#ffd700] font-bold tracking-widest uppercase mb-2">
               BASS & AIRHORN SOUNDBOARD
             </span>
@@ -144,7 +144,7 @@ export const RealisticDJDeck3D: React.FC = () => {
               <button
                 type="button"
                 onClick={() => triggerFx("bass")}
-                className={`py-3 px-2 rounded-xl border flex flex-col items-center justify-center space-y-1 transition-all cursor-pointer ${
+                className={`py-3 px-2 rounded-sm border flex flex-col items-center justify-center space-y-1 transition-all cursor-pointer ${
                   activeFx === "bass"
                     ? "bg-[#ff4444] border-white text-white scale-105 shadow-[0_0_20px_#ff4444]"
                     : "bg-[#1f0d06] border-[#ffd700]/40 text-[#ffd700] hover:bg-[#2c1409]"
@@ -157,7 +157,7 @@ export const RealisticDJDeck3D: React.FC = () => {
               <button
                 type="button"
                 onClick={() => triggerFx("airhorn")}
-                className={`py-3 px-2 rounded-xl border flex flex-col items-center justify-center space-y-1 transition-all cursor-pointer ${
+                className={`py-3 px-2 rounded-sm border flex flex-col items-center justify-center space-y-1 transition-all cursor-pointer ${
                   activeFx === "airhorn"
                     ? "bg-[#ffd700] border-white text-black scale-105 shadow-[0_0_20px_#ffd700]"
                     : "bg-[#1f0d06] border-[#ffd700]/40 text-[#ffd700] hover:bg-[#2c1409]"
@@ -170,20 +170,20 @@ export const RealisticDJDeck3D: React.FC = () => {
               <button
                 type="button"
                 onClick={() => triggerFx("laser")}
-                className={`py-3 px-2 rounded-xl border flex flex-col items-center justify-center space-y-1 transition-all cursor-pointer ${
+                className={`py-3 px-2 rounded-sm border flex flex-col items-center justify-center space-y-1 transition-all cursor-pointer ${
                   activeFx === "laser"
-                    ? "bg-[#00e5ff] border-white text-black scale-105 shadow-[0_0_20px_#00e5ff]"
+                    ? "bg-[#dfb8af] border-white text-black scale-105 shadow-[0_0_20px_#dfb8af]"
                     : "bg-[#1f0d06] border-[#ffd700]/40 text-[#ffd700] hover:bg-[#2c1409]"
                 }`}
               >
-                <Music className="w-4 h-4 text-[#00e5ff]" />
+                <Music className="w-4 h-4 text-[#dfb8af]" />
                 <span className="font-cinzel text-[10px] font-bold uppercase">LASER</span>
               </button>
             </div>
           </div>
 
           {/* Equalizer Visualizer */}
-          <div className="bg-[#050b12] border border-[#ffd700]/30 rounded-2xl p-4 flex items-center justify-between">
+          <div className="bg-[#0d0b0b] border border-[#ffd700]/30 rounded-sm p-4 flex items-center justify-between">
             <span className="font-cinzel text-[10px] text-[#cfb07a] font-bold uppercase tracking-wider">
               FLEET FREQUENCY BARS
             </span>
@@ -191,7 +191,7 @@ export const RealisticDJDeck3D: React.FC = () => {
               {[12, 24, 18, 30, 14, 28, 20, 32, 16, 26].map((h, i) => (
                 <div
                   key={i}
-                  className="w-1.5 rounded-t bg-gradient-to-t from-[#ffd700] to-[#00e5ff] transition-all duration-150"
+                  className="w-1.5 rounded-t bg-gradient-to-t from-[#ffd700] to-[#dfb8af] transition-all duration-150"
                   style={{
                     height: isPlaying ? `${Math.floor(Math.sin(Date.now() / 200 + i) * 10 + h)}px` : "4px"
                   }}

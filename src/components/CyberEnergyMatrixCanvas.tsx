@@ -34,7 +34,7 @@ export const CyberEnergyMatrixCanvas: React.FC<{ className?: string }> = ({ clas
 
       for (let i = 0; i < drops.length; i++) {
         const text = chars.charAt(Math.floor(Math.random() * chars.length));
-        ctx.fillStyle = Math.random() > 0.85 ? "#ffffff" : Math.random() > 0.5 ? "#ffd700" : "#00e5ff";
+        ctx.fillStyle = Math.random() > 0.85 ? "#ffffff" : Math.random() > 0.5 ? "#ffd700" : "#dfb8af";
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
         if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {

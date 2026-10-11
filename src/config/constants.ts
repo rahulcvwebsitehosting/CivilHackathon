@@ -34,7 +34,7 @@ export interface HackathonTheme {
 export interface JJKDomainTheme {
   id: "hero_sorcerers" | "unlimited_void" | "malevolent_shrine" | "shibuya_barrier" | "tokyo_high" | "black_flash_squad";
   name: string;
-  japanese: string; // kept as subtitle label for type compatibility, now plain English
+  japanese: string;
   user: string;
   wallpaper: string;
   accent: string;
@@ -46,76 +46,76 @@ export interface JJKDomainTheme {
 
 export const JJK_DOMAIN_THEMES: JJKDomainTheme[] = [
   {
-    id: "hero_sorcerers",
-    name: "Special Grade Showdown",
-    japanese: "SPECIAL GRADE · APEX BLUEPRINT",
-    user: "Satoru Gojo & Ryomen Sukuna",
-    wallpaper: "/assets/jjk/jjk-landing-hero.jpg",
-    accent: "#00f0ff",
-    secondaryAccent: "#ff0055",
-    glow: "rgba(0, 240, 255, 0.6)",
-    description: "The pinnacle of Jujutsu sorcery meets civil structural engineering. Gojo's infinite geometry vs Sukuna's supreme structural cleavage with Yuji's black flash impact.",
-    cursedTechnique: "Infinity CAD Blueprint & Cleave Construction"
+    "id": "hero_sorcerers",
+    "name": "Special Grade Showdown",
+    "japanese": "最強の対決",
+    "user": "Gojo & Sukuna",
+    "wallpaper": "/assets/jjk/domain-clash-1672.webp",
+    "accent": "#d7665d",
+    "secondaryAccent": "#e8d8bd",
+    "glow": "rgba(200,59,53,0.2)",
+    "description": "Two overwhelming forces. One battlefield. Step into a clash of limitless creativity and relentless ambition.",
+    "cursedTechnique": "Limitless × Shrine"
   },
   {
-    id: "unlimited_void",
-    name: "Infinite Void Gantry",
-    japanese: "UNLIMITED VOID · INFINITE BARRIER",
-    user: "Satoru Gojo (The Honored One)",
-    wallpaper: "/assets/jjk/gojo-unlimited-void.jpg",
-    accent: "#00f0ff",
-    secondaryAccent: "#a855f7",
-    glow: "rgba(0, 240, 255, 0.5)",
-    description: "Transmit limitless geometric spatial calculations into concrete form. Limitless Void spatial drafting and zero-error cantilever precision.",
-    cursedTechnique: "Limitless CAD & Concrete 3D Gantry Flow"
+    "id": "unlimited_void",
+    "name": "Unlimited Void",
+    "japanese": "無量空処",
+    "user": "Satoru Gojo",
+    "wallpaper": "/assets/jjk/gojo-unlimited-void.jpg",
+    "accent": "#baa6bf",
+    "secondaryAccent": "#e8d8bd",
+    "glow": "rgba(186,166,191,0.2)",
+    "description": "An infinity of possibilities. Find your focus in the boundless territory of the strongest sorcerer.",
+    "cursedTechnique": "Limitless"
   },
   {
-    id: "malevolent_shrine",
-    name: "Malevolent Citadel",
-    japanese: "MALEVOLENT SHRINE · BLOOD MOON",
-    user: "Ryomen Sukuna (King of Curses)",
-    wallpaper: "/assets/jjk/sukuna-malevolent-shrine.jpg",
-    accent: "#ff0055",
-    secondaryAccent: "#f59e0b",
-    glow: "rgba(255, 0, 85, 0.5)",
-    description: "Dismantle and cleave structural shear forces to create an impenetrable monolithic foundation under the blood moon.",
-    cursedTechnique: "Cleave & Dismantle Finite Element Analysis"
+    "id": "malevolent_shrine",
+    "name": "Malevolent Shrine",
+    "japanese": "伏魔御厨子",
+    "user": "Ryomen Sukuna",
+    "wallpaper": "/assets/jjk/sukuna-malevolent-shrine.jpg",
+    "accent": "#dd534a",
+    "secondaryAccent": "#d4bd88",
+    "glow": "rgba(221,83,74,0.2)",
+    "description": "A shrine without a barrier. Ruthless precision. Take command of your ideas in the territory of the King of Curses.",
+    "cursedTechnique": "Cleave & Dismantle"
   },
   {
-    id: "shibuya_barrier",
-    name: "Shibuya Incident Battlefield",
-    japanese: "METROPOLITAN CURTAIN · SHIBUYA BARRIER",
-    user: "Tokyo Jujutsu High Architects",
-    wallpaper: "/assets/jjk/jjk-shibuya-incident.jpg",
-    accent: "#a855f7",
-    secondaryAccent: "#06b6d4",
-    glow: "rgba(168, 85, 247, 0.6)",
-    description: "Hyper-realistic Shibuya Crossing under a mystical purple cursed veil. Engineered for disaster resilience and rapid perimeter containment.",
-    cursedTechnique: "Curtain Domain & Municipal Seismic Enclosures"
+    "id": "shibuya_barrier",
+    "name": "Shibuya Curtain",
+    "japanese": "渋谷事変",
+    "user": "Shibuya Incident",
+    "wallpaper": "/assets/jjk/jjk-shibuya-incident.jpg",
+    "accent": "#a592ad",
+    "secondaryAccent": "#e8d8bd",
+    "glow": "rgba(165,146,173,0.2)",
+    "description": "The curtain has fallen over Shibuya. Stay sharp, trust your squad, and solve the challenge together.",
+    "cursedTechnique": "Curtain Barrier"
   },
   {
-    id: "tokyo_high",
-    name: "Jujutsu High Academy",
-    japanese: "JUJUTSU HIGH · TEMPLE SANCTUARY",
-    user: "Tokyo Metropolitan Curse Technical College",
-    wallpaper: "/assets/jjk/jjk-tokyo-high.jpg",
-    accent: "#f59e0b",
-    secondaryAccent: "#10b981",
-    glow: "rgba(245, 158, 11, 0.5)",
-    description: "Ancient wooden pagoda temples infused with modern CAD holographic blueprints and glowing barrier talisman seals.",
-    cursedTechnique: "Talisman Barrier Grid & Heritage Restoration"
+    "id": "tokyo_high",
+    "name": "Jujutsu High",
+    "japanese": "東京都立呪術高等専門学校",
+    "user": "Tokyo Jujutsu High",
+    "wallpaper": "/assets/jjk/jjk-tokyo-high.jpg",
+    "accent": "#c5a56f",
+    "secondaryAccent": "#e8d8bd",
+    "glow": "rgba(197,165,111,0.2)",
+    "description": "A sanctuary for the next generation. Prepare your tools and refine your technique before stepping into battle.",
+    "cursedTechnique": "Barrier Technique"
   },
   {
-    id: "black_flash_squad",
-    name: "Black Flash Engineers",
-    japanese: "BLACK FLASH · SQUAD IMPACT",
-    user: "Yuji Itadori, Megumi & Nobara",
-    wallpaper: "/assets/jjk/jjk-sorcerer-team.jpg",
-    accent: "#38bdf8",
-    secondaryAccent: "#ec4899",
-    glow: "rgba(56, 189, 248, 0.6)",
-    description: "When structural stress concentrates to 0.000001 seconds, cursed energy sparks in black flash power to construct resilient skyscrapers.",
-    cursedTechnique: "Black Flash 2.5 Multiplier & Ten Shadows Prefab"
+    "id": "black_flash_squad",
+    "name": "Black Flash",
+    "japanese": "黒閃",
+    "user": "Yuji, Megumi & Nobara",
+    "wallpaper": "/assets/jjk/jjk-sorcerer-team.jpg",
+    "accent": "#d9a4a0",
+    "secondaryAccent": "#e8d8bd",
+    "glow": "rgba(217,164,160,0.2)",
+    "description": "When intent and action align, the impossible becomes possible. Build with the unbreakable resolve of your squad.",
+    "cursedTechnique": "Black Flash × Ten Shadows"
   }
 ];
 
@@ -237,8 +237,8 @@ export const CIVIL_THEMES: HackathonTheme[] = [
       "Hardware Automation & Eco-Robotics Systems"
     ],
     chips: ["AI / IOT", "SOFTWARE / HARDWARE", "AUTOMATION", "SUSTAINABILITY", "CIRCULAR ECONOMY"],
-    accentColor: "#bcf779",
-    glowColor: "rgba(188, 247, 121, 0.4)"
+    accentColor: "#d4bd88",
+    glowColor: "rgba(212,189,136, 0.4)"
   },
   {
     id: "cadathon",
@@ -256,8 +256,8 @@ export const CIVIL_THEMES: HackathonTheme[] = [
       "3D Concrete Printing Feasibility & Additive Construction"
     ],
     chips: ["BUILDING PLANNING", "STRUCTURAL DESIGN", "CONSTRUCTION", "CAD / BIM", "3D CONCRETE PRINTING"],
-    accentColor: "#64cfe6",
-    glowColor: "rgba(100, 207, 230, 0.4)"
+    accentColor: "#dfb8af",
+    glowColor: "rgba(223,184,175, 0.4)"
   }
 ];
 

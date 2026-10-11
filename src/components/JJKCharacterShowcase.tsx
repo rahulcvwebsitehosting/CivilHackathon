@@ -31,8 +31,8 @@ const SORCERER_ARCHITECTS: SorcererArchitect[] = [
     grade: "SPECIAL GRADE SORCERER",
     quote: "Throughout heaven and earth, I alone draft the limitless blueprints.",
     image: "/assets/jjk/jjk-gojo-realistic.jpg",
-    accent: "#00f0ff",
-    glow: "rgba(0, 240, 255, 0.5)",
+    accent: "#dfb8af",
+    glow: "rgba(200,59,53, 0.5)",
     technique: "Limitless Void & Spatial Infinity Gantry",
     civilApplication: "Parametric 3D Concrete Printing, Infinite Space Optimization & Zero-Defect Cantilevers.",
     stats: {
@@ -49,8 +49,8 @@ const SORCERER_ARCHITECTS: SorcererArchitect[] = [
     grade: "SPECIAL GRADE CURSE",
     quote: "Know your structural limits before you dare build in my territory.",
     image: "/assets/jjk/jjk-sukuna-realistic.jpg",
-    accent: "#ff0055",
-    glow: "rgba(255, 0, 85, 0.5)",
+    accent: "#c83b35",
+    glow: "rgba(200,59,53, 0.5)",
     technique: "Malevolent Shrine · Cleave & Dismantle",
     civilApplication: "Finite Element Shear Analysis, Rapid Structural Cleaving, Seismic Monolithic Rafts.",
     stats: {
@@ -85,8 +85,8 @@ const SORCERER_ARCHITECTS: SorcererArchitect[] = [
     grade: "BARRIER CORPS SPECIAL GRADE",
     quote: "Emerge from darkness, blacker than darkness. Purify that which is impure.",
     image: "/assets/jjk/shibuya-blueprint-barrier.jpg",
-    accent: "#8b5cf6",
-    glow: "rgba(139, 92, 246, 0.5)",
+    accent: "#b39bb3",
+    glow: "rgba(179,155,179, 0.5)",
     technique: "Metropolitan Curtain Barrier Enclosure",
     civilApplication: "Smart City Disaster Enclosures, Resilient Seismic Shrouds, Carbon-Negative Urban Shells.",
     stats: {
@@ -117,14 +117,14 @@ export const JJKCharacterShowcase: React.FC = () => {
 
       {/* Header */}
       <div className="text-center mb-6 relative z-10">
-        <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#102d42]/90 border border-cyan-500/40 text-cyan-300 text-xs font-mono mb-2">
+        <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#201819]/90 border border-stone-500/40 text-stone-300 text-xs font-mono mb-2">
           <Sparkles className="w-3.5 h-3.5" />
           <span>SPECIAL GRADE CIVIL MENTORS · SORCERER DOSSIER</span>
         </div>
         <h3 className="font-barlow text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-wider">
-          SORCERER ARCHITECTS <span className="text-[#00f0ff]">& TECHNIQUES</span>
+          SORCERER ARCHITECTS <span className="text-[#dfb8af]">& TECHNIQUES</span>
         </h3>
-        <p className="font-sans text-xs sm:text-sm text-[#9cafb7] max-w-xl mx-auto mt-1">
+        <p className="font-sans text-xs sm:text-sm text-[#bcaea2] max-w-xl mx-auto mt-1">
           Inspired by Jujutsu High sorcery: meet the legendary domain masters guiding the INNO360 engineering tracks.
         </p>
       </div>
@@ -138,10 +138,10 @@ export const JJKCharacterShowcase: React.FC = () => {
               key={sorcerer.id}
               onClick={() => handleSelect(sorcerer.id)}
               onMouseEnter={() => playHoverSound()}
-              className={`px-4 py-2 rounded-xl font-mono text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center space-x-2 border ${
+              className={`px-4 py-2 rounded-sm font-mono text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center space-x-2 border ${
                 isSelected
-                  ? "bg-[#102d42] text-white shadow-lg scale-105"
-                  : "bg-[#0b1721]/80 text-[#9cafb7] hover:text-white border-[#1f3c52] hover:border-cyan-500/50"
+                  ? "bg-[#201819] text-white shadow-lg scale-105"
+                  : "bg-[#141011]/80 text-[#bcaea2] hover:text-white border-[#463236] hover:border-stone-500/50"
               }`}
               style={{
                 borderColor: isSelected ? sorcerer.accent : undefined,
@@ -163,13 +163,13 @@ export const JJKCharacterShowcase: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -15 }}
           transition={{ duration: 0.4 }}
-          className="relative z-10 rounded-2xl overflow-hidden border bg-[#0b1721]/90 backdrop-blur-xl shadow-2xl grid grid-cols-1 md:grid-cols-12"
+          className="relative z-10 rounded-sm overflow-hidden border bg-[#141011]/90 backdrop-blur-xl shadow-2xl grid grid-cols-1 md:grid-cols-12"
           style={{ borderColor: current.accent }}
         >
           {/* Left Character 4K Visual */}
           <div className="md:col-span-5 relative min-h-[340px] sm:min-h-[420px] overflow-hidden group">
             <img
-              src={current.image}
+loading="lazy" decoding="async"               src={current.image}
               alt={current.name}
               className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
             />
@@ -177,7 +177,7 @@ export const JJKCharacterShowcase: React.FC = () => {
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
-                background: `linear-gradient(to top, #0b1721 0%, transparent 60%), linear-gradient(to right, transparent 70%, #0b1721 100%)`
+                background: `linear-gradient(to top, #141011 0%, transparent 60%), linear-gradient(to right, transparent 70%, #141011 100%)`
               }}
             />
             {/* Floating Sorcerer Badge */}
@@ -187,7 +187,7 @@ export const JJKCharacterShowcase: React.FC = () => {
             </div>
             {/* Floating Character Name */}
             <div className="absolute bottom-4 left-4 right-4">
-              <div className="font-mono text-xs font-bold text-cyan-300 tracking-wider">
+              <div className="font-mono text-xs font-bold text-stone-300 tracking-wider">
                 {current.japanese}
               </div>
               <div className="font-barlow text-3xl font-black text-white uppercase tracking-wider drop-shadow-lg">
@@ -207,7 +207,7 @@ export const JJKCharacterShowcase: React.FC = () => {
                 >
                   {current.title}
                 </span>
-                <span className="font-mono text-xs text-[#9cafb7]">
+                <span className="font-mono text-xs text-[#bcaea2]">
                   CAD · JJK RESIDUALS ACTIVE
                 </span>
               </div>
@@ -219,7 +219,7 @@ export const JJKCharacterShowcase: React.FC = () => {
 
               {/* Technique Breakdown */}
               <div className="space-y-4 mb-6">
-                <div className="p-3.5 rounded-xl bg-[#102d42]/70 border border-[#29404c]">
+                <div className="p-3.5 rounded-sm bg-[#201819]/70 border border-[#513b3b]">
                   <div className="flex items-center space-x-2 text-xs font-mono font-bold uppercase mb-1" style={{ color: current.accent }}>
                     <Zap className="w-4 h-4" />
                     <span>Inherent Cursed Technique</span>
@@ -229,12 +229,12 @@ export const JJKCharacterShowcase: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-[#102d42]/70 border border-[#29404c]">
-                  <div className="flex items-center space-x-2 text-xs font-mono font-bold uppercase mb-1 text-[#bcf779]">
+                <div className="p-3.5 rounded-sm bg-[#201819]/70 border border-[#513b3b]">
+                  <div className="flex items-center space-x-2 text-xs font-mono font-bold uppercase mb-1 text-[#d4bd88]">
                     <Compass className="w-4 h-4" />
                     <span>Civil Engineering Application in INNO360</span>
                   </div>
-                  <div className="font-sans text-xs sm:text-sm text-[#b8cfde]">
+                  <div className="font-sans text-xs sm:text-sm text-[#d8c9bb]">
                     {current.civilApplication}
                   </div>
                 </div>
@@ -243,11 +243,11 @@ export const JJKCharacterShowcase: React.FC = () => {
               {/* Power / Precision Stats Meters */}
               <div className="space-y-2.5 mb-6">
                 <div>
-                  <div className="flex justify-between text-xs font-mono text-[#9cafb7] mb-1">
+                  <div className="flex justify-between text-xs font-mono text-[#bcaea2] mb-1">
                     <span>SPATIAL / INFINITY CALCULATION</span>
                     <span className="text-white font-bold">{current.stats.infinityOutput}%</span>
                   </div>
-                  <div className="w-full h-1.5 rounded-full bg-[#102d42] overflow-hidden">
+                  <div className="w-full h-1.5 rounded-full bg-[#201819] overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-700"
                       style={{
@@ -260,34 +260,34 @@ export const JJKCharacterShowcase: React.FC = () => {
                 </div>
 
                 <div>
-                  <div className="flex justify-between text-xs font-mono text-[#9cafb7] mb-1">
+                  <div className="flex justify-between text-xs font-mono text-[#bcaea2] mb-1">
                     <span>STRUCTURAL PRECISION & SHEAR TOLERANCE</span>
                     <span className="text-white font-bold">{current.stats.structuralPrecision}%</span>
                   </div>
-                  <div className="w-full h-1.5 rounded-full bg-[#102d42] overflow-hidden">
+                  <div className="w-full h-1.5 rounded-full bg-[#201819] overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-700"
                       style={{
                         width: `${current.stats.structuralPrecision}%`,
-                        backgroundColor: "#bcf779",
-                        boxShadow: `0 0 10px #bcf779`
+                        backgroundColor: "#d4bd88",
+                        boxShadow: `0 0 10px #d4bd88`
                       }}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <div className="flex justify-between text-xs font-mono text-[#9cafb7] mb-1">
+                  <div className="flex justify-between text-xs font-mono text-[#bcaea2] mb-1">
                     <span>BARRIER ENDURANCE & SEISMIC SHIELD</span>
                     <span className="text-white font-bold">{current.stats.barrierEndurance}%</span>
                   </div>
-                  <div className="w-full h-1.5 rounded-full bg-[#102d42] overflow-hidden">
+                  <div className="w-full h-1.5 rounded-full bg-[#201819] overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-700"
                       style={{
                         width: `${current.stats.barrierEndurance}%`,
-                        backgroundColor: "#ff7b47",
-                        boxShadow: `0 0 10px #ff7b47`
+                        backgroundColor: "#e49b8b",
+                        boxShadow: `0 0 10px #e49b8b`
                       }}
                     />
                   </div>
@@ -296,14 +296,14 @@ export const JJKCharacterShowcase: React.FC = () => {
             </div>
 
             {/* Quick Action Footer */}
-            <div className="pt-4 border-t border-[#1f3c52] flex flex-wrap items-center justify-between gap-3">
-              <span className="font-mono text-xs text-[#9cafb7]">
+            <div className="pt-4 border-t border-[#463236] flex flex-wrap items-center justify-between gap-3">
+              <span className="font-mono text-xs text-[#bcaea2]">
                 Track Relevance: <strong>EcoThon & CADathon 2026</strong>
               </span>
               <button
                 type="button"
                 onClick={() => handleSelect(current.id)}
-                className="px-4 py-2 rounded-xl font-mono text-xs font-bold text-white transition-all flex items-center space-x-1.5 cursor-pointer shadow-md hover:brightness-125"
+                className="px-4 py-2 rounded-sm font-mono text-xs font-bold text-white transition-all flex items-center space-x-1.5 cursor-pointer shadow-md hover:brightness-125"
                 style={{ backgroundColor: current.accent, color: "#000" }}
               >
                 <span>CAST TECHNIQUE RESONANCE</span>

@@ -20,12 +20,12 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative z-10 bg-[#08121a] border-t border-[#1f3c52] text-[#9cafb7] font-mono text-xs py-12 px-4 select-none">
+    <footer className="relative z-10 bg-[#100c0d] border-t border-[#463236] text-[#bcaea2] font-mono text-xs py-12 px-4 select-none">
       {/* Social Links Banner */}
-      <div className="max-w-6xl mx-auto mb-10 pb-8 border-b border-[#1f3c52]">
+      <div className="max-w-6xl mx-auto mb-10 pb-8 border-b border-[#463236]">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
-            <span className="text-[10px] text-[#e75b2c] uppercase tracking-widest block mb-1">
+            <span className="text-[10px] text-[#eb9287] uppercase tracking-widest block mb-1">
               KEEP UP WITH ESEC
             </span>
             <h4 className="font-barlow text-2xl font-bold text-white">
@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-lg bg-[#102d42] border border-[#29404c] text-xs text-[#64cfe6] hover:text-white hover:border-[#64cfe6] transition-colors flex items-center space-x-1"
+                className="px-3 py-1.5 rounded-lg bg-[#201819] border border-[#513b3b] text-xs text-[#dfb8af] hover:text-white hover:border-[#dfb8af] transition-colors flex items-center space-x-1"
               >
                 <span>{s.label}</span>
                 <span className="text-[10px]">↗</span>
@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
 
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-full bg-white p-1 border border-[#64cfe6]/50">
+          <div className="w-10 h-10 rounded-full bg-white p-1 border border-[#dfb8af]/50">
             <img
               src="/assets/college-transparent.png"
               alt="ESEC Emblem"
@@ -60,9 +60,9 @@ export const Footer: React.FC = () => {
           </div>
           <div>
             <span className="font-barlow text-xl font-black text-white block leading-none">
-              INNO<span className="text-[#e75b2c]">360</span> · 2026
+              INNO<span className="text-[#eb9287]">360</span> · 2026
             </span>
-            <span className="text-[10px] text-[#64cfe6]">
+            <span className="text-[10px] text-[#dfb8af]">
               {CIVIL_EVENT_CONFIG.DEPARTMENT}
             </span>
           </div>
@@ -72,7 +72,7 @@ export const Footer: React.FC = () => {
           <p className="text-xs text-white">
             {CIVIL_EVENT_CONFIG.COLLEGE_NAME} (AUTONOMOUS)
           </p>
-          <p className="text-[11px] text-[#9cafb7] mt-0.5">
+          <p className="text-[11px] text-[#bcaea2] mt-0.5">
             Thudupathi, Perundurai, Erode, Tamil Nadu — 638057
           </p>
         </div>
@@ -80,14 +80,14 @@ export const Footer: React.FC = () => {
         <button
           type="button"
           onClick={scrollToTop}
-          className="w-10 h-10 rounded-xl bg-[#102d42] border border-[#29404c] hover:border-[#64cfe6] flex items-center justify-center text-[#64cfe6] hover:scale-105 transition-all cursor-pointer shadow-md"
+          className="w-10 h-10 rounded-sm bg-[#201819] border border-[#513b3b] hover:border-[#dfb8af] flex items-center justify-center text-[#dfb8af] hover:scale-105 transition-all cursor-pointer shadow-md"
           title="Back to Top"
         >
           <ArrowUp className="w-4 h-4" />
         </button>
       </div>
 
-      <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-[#1f3c52]/60 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#9cafb7] gap-3">
+      <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-[#463236]/60 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#bcaea2] gap-3">
         <div>
           © 2026 {CIVIL_EVENT_CONFIG.EVENT_NAME} · {CIVIL_EVENT_CONFIG.MISSION_MOTTO}
         </div>
@@ -96,7 +96,7 @@ export const Footer: React.FC = () => {
             href={CIVIL_EVENT_CONFIG.GOOGLE_FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#e75b2c] hover:underline"
+            className="text-[#eb9287] hover:underline"
           >
             Google Form Registration ↗
           </a>
@@ -104,7 +104,7 @@ export const Footer: React.FC = () => {
             href={CIVIL_EVENT_CONFIG.BROCHURE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#64cfe6] hover:underline"
+            className="text-[#dfb8af] hover:underline"
           >
             Event Brochure ↗
           </a>
