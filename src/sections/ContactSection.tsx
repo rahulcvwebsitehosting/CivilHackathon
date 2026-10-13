@@ -24,7 +24,7 @@ export const ContactSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           {/* Emblem & Accreditations */}
           <div className="md:col-span-5 flex flex-col items-center justify-center p-6 bg-[#141011] border border-[#463236] rounded-sm text-center">
-            <div className="w-28 h-28 p-2 rounded-full bg-white mb-4 shadow-md flex items-center justify-center">
+            <div className="w-36 h-36 mb-4 flex items-center justify-center">
               <img
                 src="/assets/college-transparent.png"
                 alt="Erode Sengunthar Engineering College"

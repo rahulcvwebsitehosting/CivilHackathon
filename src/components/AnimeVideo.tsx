@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 /** Play only the visible clip; the shared energy switch also stops decoding video. */
 export function AnimeVideo({ clip, poster, className = "", label }: { clip: string; poster: string; className?: string; label: string }) {
+  const sourceClip = clip === "sukuna-shrine" ? "sukuna-cinema" : clip;
   const ref = useRef<HTMLVideoElement>(null);
   const [failed, setFailed] = useState(false);
   useEffect(() => {
@@ -20,6 +21,6 @@ export function AnimeVideo({ clip, poster, className = "", label }: { clip: stri
     return () => { observer.disconnect(); motion.disconnect(); document.removeEventListener("visibilitychange", update); video.pause(); };
   }, [clip]);
   return <div className={`anime-video ${className}`}>
-    {failed ? <img src={poster} alt={`${label} — video unavailable`} /> : <video ref={ref} src={`/assets/jjk/media/${clip}.mp4`} poster={poster} muted loop playsInline preload="metadata" aria-label={label} onError={() => setFailed(true)} />}
+    {failed ? <img src={poster} alt={`${label} — video unavailable`} /> : <video ref={ref} src={`/assets/jjk/media/${sourceClip}.mp4`} poster={poster} muted loop playsInline preload="metadata" aria-label={label} onError={() => setFailed(true)} />}
   </div>;
 }

@@ -1,9 +1,17 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 import { JJK_DOMAIN_THEMES, JJKDomainTheme } from "../config/constants";
 
-import { playCharacterVoice } from "../utils/characterAudio";
+import { playCharacterVoice, stopCharacterVoice, type CharacterClip } from "../utils/characterAudio";
 
-export const domainClip = (id: JJKDomainTheme["id"]) => id === "malevolent_shrine" ? "sukuna-shrine" : id === "black_flash_squad" ? "yuji-black-flash" : "gojo-void";
+export const domainClip = (id: JJKDomainTheme["id"]): CharacterClip | null => {
+  switch (id) {
+    case "malevolent_shrine": return "sukuna-shrine";
+    case "black_flash_squad": return "yuji-black-flash";
+    case "unlimited_void":
+    case "hero_sorcerers": return "gojo-void";
+    default: return null;
+  }
+};
 
 interface DomainThemeContextType {
   activeDomain: JJKDomainTheme;
@@ -28,7 +36,9 @@ export const DomainThemeProvider: React.FC<{ children: React.ReactNode }> = ({ c
   const [isDomainOverlayOpen, setIsDomainOverlayOpen] = useState(false);
 
   const setActiveDomain = (domain: JJKDomainTheme) => {
-    if (domain.id !== activeDomain.id) playCharacterVoice(domainClip(domain.id)).catch(() => {});
+    stopCharacterVoice();
+    const clip = domainClip(domain.id);
+    if (clip) playCharacterVoice(clip, "domain-selection").catch(() => {});
     setActiveDomainState(domain);
     try { localStorage.setItem("jjk_domain_theme", domain.id); } catch { /* Keep the current session usable. */ }
   };

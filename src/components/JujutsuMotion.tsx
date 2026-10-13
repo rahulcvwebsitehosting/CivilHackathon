@@ -8,6 +8,7 @@ import { domainClip, useDomainTheme } from "../context/DomainThemeContext";
 export const JujutsuMotion: React.FC = () => {
   const { pathname } = useLocation();
   const { activeDomain } = useDomainTheme();
+  const clip = domainClip(activeDomain.id);
   const previousDomain = useRef(activeDomain.id);
   const [manifesting, setManifesting] = useState(false);
   const [paused, setPaused] = useState(() => {
@@ -23,13 +24,23 @@ export const JujutsuMotion: React.FC = () => {
   }, [enabled, paused]);
 
   useEffect(() => {
+    const syncVoice = (event: Event) => {
+      const { owner, playing } = (event as CustomEvent<{ owner?: string; playing: boolean }>).detail;
+      if (owner === "domain-selection") setManifesting(enabled && playing);
+    };
+    window.addEventListener("jjk-voice-state", syncVoice);
+    return () => window.removeEventListener("jjk-voice-state", syncVoice);
+  }, [enabled]);
+
+  useEffect(() => {
     if (!enabled) { setManifesting(false); previousDomain.current = activeDomain.id; return; }
     if (previousDomain.current === activeDomain.id) return;
     previousDomain.current = activeDomain.id;
+    if (clip) return; // The voice start/end events control actual technique scenes.
     setManifesting(true);
-    const timer = window.setTimeout(() => setManifesting(false), 4000);
+    const timer = window.setTimeout(() => setManifesting(false), 3000);
     return () => window.clearTimeout(timer);
-  }, [activeDomain.id, enabled]);
+  }, [activeDomain.id, enabled, clip]);
 
   useEffect(() => {
     if (!enabled) return;
@@ -68,8 +79,8 @@ export const JujutsuMotion: React.FC = () => {
     <div className="cursed-energy-field" aria-hidden="true">
       {Array.from({ length: 14 }, (_, i) => <i key={i} style={{ "--i": i, "--drift": `${i % 2 ? -36 : 44}px` } as React.CSSProperties} />)}
     </div>
-    {manifesting && <div className="domain-manifestation" aria-hidden="true" key={activeDomain.id}>
-      <AnimeVideo clip={domainClip(activeDomain.id)} poster={activeDomain.wallpaper} label={`${activeDomain.name} domain animation`} />
+    {manifesting && <div className={`domain-manifestation manifest-${activeDomain.id}`} aria-hidden="true" key={activeDomain.id}>
+      {clip ? <AnimeVideo clip={clip} poster={activeDomain.wallpaper} label={`${activeDomain.name} domain animation`} /> : <img className="manifest-poster" src={activeDomain.wallpaper} alt="" />}
       <div className="manifest-ring" /><div className="manifest-ring ring-two" />
       <span lang="ja">{activeDomain.japanese}</span><small>{activeDomain.name}</small>
     </div>}

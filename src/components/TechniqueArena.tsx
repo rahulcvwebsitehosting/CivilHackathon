@@ -2,10 +2,10 @@ import React, { useEffect, useId, useRef, useState } from "react";
 import { ArrowUpRight, Zap, Volume2, VolumeX } from "lucide-react";
 import { Technique, TechniqueEnergy } from "./JujutsuMotion";
 import { isSoundEnabled, toggleMute } from "../utils/cyberSound";
-import { playCharacterVoice, stopCharacterVoice } from "../utils/characterAudio";
+import { playCharacterVoice, stopCharacterVoice, preloadCharacterVoice, type CharacterClip } from "../utils/characterAudio";
 import { AnimeVideo } from "./AnimeVideo";
 
-const techniques: { id: Technique; character: string; name: string; japanese: string; image: string; clip: string; description: string; chant: string }[] = [
+const techniques: { id: Technique; character: string; name: string; japanese: string; image: string; clip: CharacterClip; description: string; chant: string }[] = [
   { id: "infinity", character: "SATORU GOJO", name: "UNLIMITED VOID", japanese: "無量空処", image: "gojo-infinity", clip: "gojo-void", description: "Between you and the impossible lies an infinity of possibilities.", chant: "DOMAIN EXPANSION · UNLIMITED VOID" },
   { id: "shadows", character: "MEGUMI FUSHIGURO", name: "CHIMERA SHADOW GARDEN", japanese: "嵌合暗翳庭", image: "megumi-shadows", clip: "megumi-garden", description: "Let the shadows take shape. Summon the strength of your shikigami.", chant: "DOMAIN EXPANSION · CHIMERA SHADOW GARDEN" },
   { id: "resonance", character: "NOBARA KUGISAKI", name: "RESONANCE", japanese: "共鳴り", image: "nobara-resonance", clip: "nobara-resonance", description: "A hammer, a nail, and unshakable resolve. Make every strike count.", chant: "STRAW DOLL TECHNIQUE · RESONANCE" },
@@ -20,18 +20,17 @@ export const TechniqueArena: React.FC<{ initialTechnique?: number }> = ({ initia
   const touchStart = useRef<number | null>(null);
   const [selected, setSelected] = useState(initialTechnique);
   const [casting, setCasting] = useState(false);
-  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const stage = useRef<HTMLDivElement>(null);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
   const active = techniques[selected];
   useEffect(() => {
     const sync = () => setSound(isSoundEnabled());
     window.addEventListener("jjk-sound-change", sync);
-    return () => { clearTimeout(timer.current); stopCharacterVoice(); window.removeEventListener("jjk-sound-change", sync); };
+    return () => { stopCharacterVoice(arenaId); window.removeEventListener("jjk-sound-change", sync); };
   }, []);
+  useEffect(() => { preloadCharacterVoice(active.clip); }, [active.clip]);
   const select = (index: number) => {
-    clearTimeout(timer.current);
-    stopCharacterVoice();
+    stopCharacterVoice(arenaId);
     setAudioError(false);
     setCasting(false);
     setSelected(index);
@@ -39,10 +38,10 @@ export const TechniqueArena: React.FC<{ initialTechnique?: number }> = ({ initia
   const cast = () => {
     if (casting) return;
     setAudioError(false);
-    playCharacterVoice(active.clip).catch(() => { setAudioError(true); setCasting(false); clearTimeout(timer.current); });
+    playCharacterVoice(active.clip, arenaId).then(() => setCasting(false)).catch(() => { setAudioError(true); setCasting(false); });
     setCasting(true);
     stage.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    timer.current = setTimeout(() => setCasting(false), 8000);
+
   };
   const navigateTabs = (event: React.KeyboardEvent, index: number) => {
     let next = index;

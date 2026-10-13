@@ -91,3 +91,19 @@ html[data-jjk-motion="paused"] .domain-hero-art, html[data-jjk-motion="paused"] 
 
 /* Keep the muted clip visible even when its source has a tall frame. */
 .technique-stage.is-casting .anime-video video { object-fit: contain; }
+
+.hero-voice { background: transparent; cursor: pointer; }
+.transition-skip { position:absolute; right:24px; bottom:28px; display:flex; align-items:center; gap:8px; min-height:44px; padding:10px 16px; border:1px solid #89675f; color:#f2e9da; background:#100b0dcc; font:14px "Bangers",sans-serif; letter-spacing:.1em; }
+.domain-transition > strong { font-family:"Bangers",Impact,sans-serif; text-align:center; }
+.transition-unlimited_void .transition-barrier { border-color:#c8a4e0; box-shadow:0 0 60px #9674b433,inset 0 0 60px #9674b433; }
+.transition-malevolent_shrine .transition-barrier, .manifest-malevolent_shrine .manifest-ring { border-radius:0; border-color:#e45242; border-width:2px; transform:rotate(25deg); box-shadow:0 0 60px #b4221733; animation:shrine-cleave 1.6s ease-in-out infinite alternate; }
+.transition-malevolent_shrine .barrier-two { transform:rotate(-25deg); animation-delay:-.8s; }
+.transition-malevolent_shrine > span { color:#ef6a55; text-shadow:0 0 44px #ca281d; }
+.transition-malevolent_shrine > .anime-video video { filter:contrast(1.12) saturate(1.2); }
+.manifest-poster { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.45; z-index:-1; }
+@keyframes shrine-cleave { from { scale:.8; opacity:.3; } to { scale:1.6; opacity:1; } }
+html[data-jjk-motion="paused"] .transition-barrier { animation:none; }
+@media(max-width:600px) { .hero-actions { flex-wrap:wrap; } .domain-transition > small { text-align:center; padding:0 24px; line-height:1.7; } }
+
+.domain-manifestation { animation: manifest-enter .35s ease both; }
+@keyframes manifest-enter { from { opacity:0; } to { opacity:1; } }
