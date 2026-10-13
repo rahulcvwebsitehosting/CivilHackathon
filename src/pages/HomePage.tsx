@@ -1,3 +1,4 @@
+import { CollegeCommunitySection } from "../sections/CollegeCommunitySection";
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowDown, ArrowUpRight, Bus, ChevronRight } from "lucide-react";
@@ -64,6 +65,7 @@ export const HomePage: React.FC = () => {
           <div><span className="fact-index">03 / THE BATTLEFIELD</span><strong>ESEC, PERUNDURAI</strong><small>Erode · Tamil Nadu</small></div>
           <Link to="/portal#transport" className="fact-transport"><Bus size={24} /><div><strong>41 FREE BUS ROUTES</strong><small>Find your way to the domain</small></div><ArrowUpRight size={22} /></Link>
         </section>
+        <CollegeCommunitySection />
         <section id="techniques" className="techniques-section">
           <div className="section-intro"><div><p className="chapter-label">CHAPTER 01 <span className="chapter-divider">/</span> CHOOSE YOUR TECHNIQUE</p><h2>TWO BATTLE<br /><em>GROUNDS.</em></h2></div><p>Every sorcerer has a technique.<br />Bring yours to a real-world challenge.<br /><span>Problem statements revealed on the spot.</span></p></div>
           <div className="technique-grid">

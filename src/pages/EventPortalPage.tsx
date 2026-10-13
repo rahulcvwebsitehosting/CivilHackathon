@@ -1,3 +1,4 @@
+import { CollegeCommunitySection } from "../sections/CollegeCommunitySection";
 import React from "react";
 import { Navbar } from "../components/Navbar";
 import { InteractiveCursor } from "../components/InteractiveCursor";
@@ -46,6 +47,7 @@ export const EventPortalPage: React.FC = () => {
       <main id="main-content" className="relative z-10 space-y-12 sm:space-y-16">
         <div className="portal-chapter"><span lang="ja" aria-hidden="true">領域</span><div><p>THE CURTAIN HAS FALLEN / YOUR MISSION BEGINS</p><h1>WELCOME TO THE DOMAIN.</h1></div><small>{activeDomain.name}</small></div>
         <AboutSection />
+        <CollegeCommunitySection />
         <DatesSection />
         <CountdownSection />
         <DomainsSection />

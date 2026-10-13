@@ -5,7 +5,7 @@ export function stopCharacterVoice() { if (voice) { voice.pause(); voice.current
 export function playCharacterVoice(clip: string): Promise<void> {
   stopCharacterVoice();
   if (!isSoundEnabled()) return Promise.resolve();
-  voice = new Audio(`/assets/jjk/media/${clip}.mp3`);
+  voice = new Audio(`/assets/jjk/media/${clip}-en.mp3`);
   voice.hidden = true;
   voice.dataset.characterClip = clip;
   document.body.appendChild(voice);

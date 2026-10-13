@@ -7,7 +7,7 @@ import { toggleMute, isSoundEnabled } from "../utils/cyberSound";
 const links = [
   ["BATTLE GROUNDS", "tracks"], ["TRANSPORT", "transport"], ["THE LAB", "campus"],
   ["BINDING VOWS", "rules"], ["TIMELINE", "schedule"], ["CURSED TECHNIQUE LAB", "cursed-techniques"], ["SQUAD FEES", "team-rules"],
-  ["FAQ", "faq"], ["CONTACT", "contacts"]
+  ["KNOW ABOUT US", "community"], ["FAQ", "faq"], ["CONTACT", "contacts"]
 ];
 
 export const Navbar: React.FC = () => {

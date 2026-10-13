@@ -55,7 +55,7 @@ export const TechniqueArena: React.FC<{ initialTechnique?: number }> = ({ initia
   };
 
   return <section id="cursed-techniques" className="technique-arena" aria-labelledby={`${arenaId}-title`}>
-    <div className="section-intro"><div><p className="chapter-label">CURSED TECHNIQUE LAB <span>/</span> TOUCH THE IMPOSSIBLE</p><h2 id={`${arenaId}-title`}>DON’T JUST WATCH.<br /><em>CAST YOUR TECHNIQUE.</em></h2></div><p>Five sorcerers. Anime footage + character voices.<br />Swipe to switch. Tap to unleash.</p></div>
+    <div className="section-intro"><div><p className="chapter-label">CURSED TECHNIQUE LAB <span>/</span> TOUCH THE IMPOSSIBLE</p><h2 id={`${arenaId}-title`}>DON’T JUST WATCH.<br /><em>CAST YOUR TECHNIQUE.</em></h2></div><p>Five sorcerers. Anime footage + English dub voices.<br />Swipe to switch. Tap to unleash.</p></div>
     <div className="sorcerer-tabs" role="tablist" aria-label="Choose a sorcerer's technique">
       {techniques.map((technique, index) => <button key={technique.id} ref={node => { tabs.current[index] = node; }} id={`${arenaId}-tab-${technique.id}`} role="tab" aria-selected={index === selected} aria-controls={`${arenaId}-stage`} tabIndex={index === selected ? 0 : -1} onClick={() => select(index)} onKeyDown={event => navigateTabs(event, index)}><small>0{index + 1} / {technique.character}</small><strong>{technique.name}</strong><span lang="ja">{technique.japanese}</span></button>)}
     </div>
@@ -71,7 +71,7 @@ export const TechniqueArena: React.FC<{ initialTechnique?: number }> = ({ initia
       <div className="technique-stage-copy" key={`copy-${active.id}`}><p className="chapter-label">ANIME SEQUENCE / 0{selected + 1}</p><span className="technique-kanji" lang="ja">{active.japanese}</span><h3>{active.name}</h3><p>{active.description}</p><button className="seal-button seal-button-red" onClick={cast} disabled={casting}><Zap size={18} />{casting ? "CURSED ENERGY UNLEASHED" : "RELEASE + PLAY VOICE"}<ArrowUpRight size={17} /></button></div>
       <button className="arena-sound" onClick={toggleMute} aria-label={sound ? "Mute character voices" : "Enable character voices"}>{sound ? <Volume2 size={17} /> : <VolumeX size={17} />} {sound ? "VOICE ON" : "VOICE OFF"}</button>
       {casting && <div className="attack-callout" aria-hidden="true"><span lang="ja">{active.japanese}</span><strong>{active.name}</strong><i /></div>}
-      <div className="technique-chant" role="status" aria-live="polite">{audioError ? "VOICE UNAVAILABLE · TAP AGAIN TO RETRY" : casting ? active.chant : "SWIPE TO SWITCH · RELEASE TO HEAR THEIR VOICE"}</div>
+      <div className="technique-chant" role="status" aria-live="polite">{audioError ? "VOICE UNAVAILABLE · TAP AGAIN TO RETRY" : casting ? active.chant : "ENGLISH DUB · RELEASE TO HEAR THEIR VOICE"}</div>
       <span className="technique-stage-stamp" aria-hidden="true" lang="ja">呪</span>
     </div>
   </section>;
