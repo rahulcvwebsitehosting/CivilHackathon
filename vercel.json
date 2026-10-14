@@ -1,10 +1,7 @@
 {
-  "rewrites": [
-    { "source": "/portal", "destination": "/index.html" },
-    { "source": "/event", "destination": "/index.html" },
-    { "source": "/register", "destination": "/index.html" },
-    { "source": "/status", "destination": "/index.html" },
-    { "source": "/review", "destination": "/index.html" },
-    { "source": "/reviews", "destination": "/index.html" }
-  ]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "",
+  "installCommand": "",
+  "outputDirectory": "dist"
 }

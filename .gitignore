@@ -1,8 +1,9 @@
+.openai/
+.vercel/
+.env
+.env.*
 node_modules/
-build/
-dist/
-coverage/
-.DS_Store
 *.log
-.env*
-!.env.example
+*-preview.jpg
+.DS_Store
+Thumbs.db
